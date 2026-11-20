@@ -13,8 +13,14 @@
   // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
   // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
   // Note: this 404.html page must be set to 404.html in the repository.
-  var pathSegmentsToKeep = 1;
+  // The site is served from two places: the project page
+  // hasan000amin.github.io/codelab/ (the repo name is the first path
+  // segment, so keep 1 segment) and the custom domain codelab.my.id
+  // (the site is at the domain root, so keep 0 segments). Keeping the
+  // wrong number makes the redirect loop and pile up ~and~ in the URL.
   var l = window.location;
+  var isProjectPage = l.hostname.slice(-10) === 'github.io' && l.pathname.split('/')[1] === 'codelab';
+  var pathSegmentsToKeep = isProjectPage ? 1 : 0;
   l.replace(
     l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
     l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
