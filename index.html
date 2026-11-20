@@ -147,6 +147,56 @@ ul.feat li::before{content:"";position:absolute;left:2px;top:17px;width:8px;heig
 .pagehead h1{font-size:clamp(1.7rem,4.5vw,2.8rem);text-transform:uppercase}
 .pagehead p{color:var(--muted);max-width:60ch;margin-top:14px}
 
+/* Legal 3D — keeps the dark scheme, adds a live Three.js stage */
+.page[data-page="privacy"],.page[data-page="terms"]{position:relative;background:radial-gradient(900px 500px at 85% -5%,rgba(31,216,198,.14),transparent 60%),radial-gradient(700px 500px at 0% 22%,rgba(255,90,60,.08),transparent 55%),var(--bg)}
+.page[data-page="terms"]{background:radial-gradient(900px 500px at 85% -5%,rgba(255,180,84,.13),transparent 60%),radial-gradient(700px 500px at 0% 22%,rgba(31,216,198,.09),transparent 55%),var(--bg)}
+.legal-wrap{max-width:980px}
+.legal-hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:linear-gradient(115deg,rgba(12,30,48,.96) 0%,rgba(8,22,36,.92) 48%,rgba(6,14,23,.72) 100%);min-height:430px;display:flex;align-items:flex-end;margin-top:28px;isolation:isolate;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.legal-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(31,216,198,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(31,216,198,.07) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(70% 90% at 78% 40%,#000 0%,transparent 78%);z-index:0;pointer-events:none}
+.page[data-page="terms"] .legal-hero{border-color:rgba(255,180,84,.28)}
+.page[data-page="terms"] .legal-hero::before{background-image:linear-gradient(rgba(255,180,84,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,180,84,.07) 1px,transparent 1px)}
+.three-legal{position:absolute;inset:0;z-index:1}
+.three-legal canvas{display:block;width:100%;height:100%}
+.legal-hero-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(6,14,23,.88) 0%,rgba(6,14,23,.62) 46%,transparent 72%),linear-gradient(0deg,rgba(6,14,23,.88),transparent 52%);pointer-events:none}
+.legal-hero-content{position:relative;z-index:3;padding:34px 34px 30px;max-width:620px;pointer-events:none}
+.legal-hero-content a,.legal-hero-content button{pointer-events:auto}
+.legal-hero-content h1{font-size:clamp(2rem,5.2vw,3.4rem);text-transform:uppercase;line-height:.98;letter-spacing:.01em}
+.legal-hero-content h1 em{font-style:normal;color:var(--teal)}
+.page[data-page="terms"] .legal-hero-content h1 em{color:var(--amber)}
+.legal-lede{color:#d9ebe8;font-size:1.02rem;line-height:1.65;margin:16px 0 0;max-width:54ch}
+.legal-hero-top{position:absolute;top:18px;left:22px;right:22px;z-index:4;display:flex;justify-content:space-between;gap:12px;align-items:center;pointer-events:none}
+.legal-live{font-family:"Share Tech Mono",monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);border:1px solid var(--line);background:rgba(6,14,23,.68);padding:7px 10px;border-radius:999px;backdrop-filter:blur(8px);display:inline-flex;align-items:center;gap:8px}
+.legal-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal)}
+.page[data-page="terms"] .legal-live{color:var(--amber);border-color:rgba(255,180,84,.35)}
+.page[data-page="terms"] .legal-live::before{background:var(--amber);box-shadow:0 0 12px var(--amber)}
+.legal-coord{font-family:"Share Tech Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(238,247,245,.72)}
+.legal-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.legal-badge{font-family:"Share Tech Mono",monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:#eafffb;border:1px solid rgba(31,216,198,.35);background:rgba(31,216,198,.1);padding:7px 10px;border-radius:999px}
+.page[data-page="terms"] .legal-badge{border-color:rgba(255,180,84,.35);background:rgba(255,180,84,.09)}
+.legal-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+.legal-hint{font-family:"Share Tech Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.legal-pause{background:rgba(6,14,23,.76);border:1px solid var(--line);color:var(--teal);font-family:"Share Tech Mono",monospace;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;padding:10px 14px;min-height:44px;cursor:pointer;backdrop-filter:blur(8px)}
+.legal-pause:hover{background:rgba(31,216,198,.18);color:#fff}
+.legal-shell{position:relative;margin-top:22px;background:linear-gradient(180deg,rgba(16,40,61,.92),rgba(10,26,41,.94));border:1px solid var(--line-soft);border-radius:20px;padding:10px 34px 36px;box-shadow:0 18px 44px rgba(0,0,0,.28)}
+.legal-shell::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:.55;border-radius:20px}
+.page[data-page="terms"] .legal-shell::before{background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.legal-shell h2{display:flex;gap:12px;align-items:baseline;padding-top:22px;margin-top:22px;border-top:1px dashed rgba(238,247,245,.13)}
+.legal-shell h2:first-child{border-top:none;margin-top:8px}
+.legal-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.legal-stat{border:1px solid var(--line-soft);background:rgba(6,14,23,.55);border-radius:12px;padding:14px 16px}
+.legal-stat b{font-family:"Michroma",sans-serif;font-size:1.05rem;display:block;color:#fff}
+.legal-stat span{font-family:"Share Tech Mono",monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:760px){
+  .legal-hero{min-height:560px;align-items:flex-end}
+  .legal-hero-content{padding:26px 22px 24px;max-width:100%}
+  .legal-hero-shade{background:linear-gradient(0deg,rgba(6,14,23,.96) 0%,rgba(6,14,23,.78) 52%,rgba(6,14,23,.12) 82%)}
+  .legal-coord{display:none}
+  .legal-shell{padding:6px 20px 28px;border-radius:16px}
+  .legal-stats{grid-template-columns:1fr}
+  .legal-hero-top{left:16px;right:16px;top:14px}
+}
+@media(prefers-reduced-motion:reduce){.legal-live::before{box-shadow:none}}
+
 /* Footer */
 footer{background:#040a11;border-top:1px solid var(--line-soft);padding:56px 0 34px;margin-top:0}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
@@ -388,13 +438,22 @@ footer p{color:var(--faint);font-size:.94rem}
 
 <!-- ============ PRIVACY ============ -->
 <section class="page" data-page="privacy">
-  <div class="wrap legal">
-    <div class="pagehead">
-      <p class="mono kicker">Legal</p>
-      <h1>Privacy Policy</h1>
-      <p class="updated mono">Last updated: November 20, 2026</p>
-      <p>This Privacy Policy explains what information Codelab Game Studio (&ldquo;Codelab&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects when you play our mobile games and visit this website, how we use it, and the choices you have. It applies to all games published by Codelab Game Studio on Google Play, including Stellar Drift: Odyssey, Abyssal Frontier, and Frontier Worlds.</p>
+  <div class="wrap legal legal-wrap">
+    <div class="legal-hero" data-legal-hero="privacy">
+      <div class="three-legal" data-three-legal="privacy" aria-hidden="true"></div>
+      <div class="legal-hero-shade"></div>
+      <div class="legal-hero-top"><span class="legal-live">Live 3D &bull; Shield Core</span><span class="legal-coord">Sector // Privacy Vault 07</span></div>
+      <div class="legal-hero-content">
+        <p class="mono kicker" style="margin-bottom:12px">Legal</p>
+        <h1>Privacy <em>Policy</em></h1>
+        <p class="updated mono">Last updated: November 20, 2026</p>
+        <p class="legal-lede">This Privacy Policy explains what information Codelab Game Studio (&ldquo;Codelab&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects when you play our mobile games and visit this website, how we use it, and the choices you have. It applies to all games published by Codelab Game Studio on Google Play, including Stellar Drift: Odyssey, Abyssal Frontier, and Frontier Worlds.</p>
+        <div class="legal-badges" aria-label="Privacy highlights"><span class="legal-badge">No sale of personal data</span><span class="legal-badge">Ad choices on device</span><span class="legal-badge">Rights &amp; contact</span></div>
+        <div class="legal-controls"><span class="legal-hint">Drag the shield to rotate &bull; Move for parallax</span><button type="button" class="legal-pause" data-legal-pause="privacy" aria-pressed="false">Pause 3D</button></div>
+        <div class="legal-stats"><div class="legal-stat"><b>9</b><span>Policy sections</span></div><div class="legal-stat"><b>3</b><span>Third-party services listed</span></div><div class="legal-stat"><b>1</b><span>Contact email</span></div></div>
+      </div>
     </div>
+    <div class="legal-shell">
     <h2>1. Information We Collect</h2>
     <p>We collect only the information needed to operate, improve, and support our games:</p>
     <ul>
@@ -432,19 +491,29 @@ footer p{color:var(--faint);font-size:.94rem}
     <p>We may update this Privacy Policy from time to time. The current version will always be posted on this page, with the &ldquo;Last updated&rdquo; date revised. Continued use of our games after a change means you accept the updated policy.</p>
     <h2>9. Contact Us</h2>
     <p>If you have questions about this Privacy Policy or your data, contact Codelab Game Studio by email at <a href="mailto:support@codelab.my.id">support@codelab.my.id</a>.</p>
+    </div>
     <div style="height:70px"></div>
   </div>
 </section>
 
 <!-- ============ TERMS ============ -->
 <section class="page" data-page="terms">
-  <div class="wrap legal">
-    <div class="pagehead">
-      <p class="mono kicker">Legal</p>
-      <h1>Terms of Service</h1>
-      <p class="updated mono">Last updated: November 20, 2026</p>
-      <p>These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the games and this website provided by Codelab Game Studio (&ldquo;Codelab&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). By downloading, installing, or playing any of our games, you agree to these Terms. If you do not agree, please do not use our games.</p>
+  <div class="wrap legal legal-wrap">
+    <div class="legal-hero" data-legal-hero="terms">
+      <div class="three-legal" data-three-legal="terms" aria-hidden="true"></div>
+      <div class="legal-hero-shade"></div>
+      <div class="legal-hero-top"><span class="legal-live">Live 3D &bull; Accord Core</span><span class="legal-coord">Sector // Terms Archive 10</span></div>
+      <div class="legal-hero-content">
+        <p class="mono kicker" style="margin-bottom:12px">Legal</p>
+        <h1>Terms of <em>Service</em></h1>
+        <p class="updated mono">Last updated: November 20, 2026</p>
+        <p class="legal-lede">These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the games and this website provided by Codelab Game Studio (&ldquo;Codelab&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). By downloading, installing, or playing any of our games, you agree to these Terms. If you do not agree, please do not use our games.</p>
+        <div class="legal-badges" aria-label="Terms highlights"><span class="legal-badge">License to play</span><span class="legal-badge">Fair play rules</span><span class="legal-badge">Google Play purchases</span></div>
+        <div class="legal-controls"><span class="legal-hint">Drag the core to rotate &bull; Move for parallax</span><button type="button" class="legal-pause" data-legal-pause="terms" aria-pressed="false">Pause 3D</button></div>
+        <div class="legal-stats"><div class="legal-stat"><b>10</b><span>Terms sections</span></div><div class="legal-stat"><b>Android</b><span>Platform</span></div><div class="legal-stat"><b>Google Play</b><span>Payments &amp; refunds</span></div></div>
+      </div>
     </div>
+    <div class="legal-shell">
     <h2>1. License to Play</h2>
     <p>We grant you a personal, non-exclusive, non-transferable, revocable license to install and play our games on a device you own or control, for your own non-commercial entertainment, subject to these Terms and the Google Play Terms of Service.</p>
     <h2>2. Acceptable Use</h2>
@@ -469,6 +538,7 @@ footer p{color:var(--faint);font-size:.94rem}
     <p>These Terms are governed by the laws of Indonesia, without regard to conflict of law principles, unless the law of your country of residence requires otherwise for consumers.</p>
     <h2>10. Changes and Contact</h2>
     <p>We may update these Terms from time to time, and the current version will always be posted on this page. If you have questions about these Terms, contact Codelab Game Studio by email at <a href="mailto:support@codelab.my.id">support@codelab.my.id</a>.</p>
+    </div>
     <div style="height:70px"></div>
   </div>
 </section>
@@ -904,6 +974,237 @@ footer p{color:var(--faint);font-size:.94rem}
     } catch (e) { /* decorative layer: never break the page */ }
   }
   tick();
+})();
+</script>
+<script>
+/* ============ Three.js legal stages: Privacy shield + Terms accord core ============
+   Dark-scheme 3D heroes for the legal pages. Decorative and interactive:
+   drag to rotate, move for parallax, pause per stage. If WebGL fails the
+   gradient + grid hero underneath still looks complete. */
+(function () {
+  if (typeof THREE === 'undefined') {
+    var pb = document.querySelectorAll('[data-legal-pause]');
+    for (var i = 0; i < pb.length; i++) pb[i].style.display = 'none';
+    return;
+  }
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function softDotTex() {
+    var c = document.createElement('canvas'); c.width = 64; c.height = 64;
+    var g = c.getContext('2d');
+    var grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+    grad.addColorStop(0, 'rgba(255,255,255,1)');
+    grad.addColorStop(0.35, 'rgba(255,255,255,.75)');
+    grad.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = grad; g.fillRect(0, 0, 64, 64);
+    return new THREE.CanvasTexture(c);
+  }
+  var dotTex = softDotTex();
+
+  function initLegal(container) {
+    var variant = container.getAttribute('data-three-legal');
+    var hero = container.closest ? container.closest('[data-legal-hero]') : null;
+    var page = container.closest ? container.closest('.page') : null;
+    var pauseBtn = document.querySelector('[data-legal-pause="' + variant + '"]');
+    if (!hero || !page) return;
+
+    var renderer;
+    try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); }
+    catch (e) { if (pauseBtn) pauseBtn.style.display = 'none'; return; }
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.12;
+    container.appendChild(renderer.domElement);
+
+    var isPrivacy = variant === 'privacy';
+    var accent = isPrivacy ? 0x1fd8c6 : 0xffb454;
+    var accent2 = isPrivacy ? 0xffb454 : 0x1fd8c6;
+    var seed = isPrivacy ? 987654 : 24681357;
+    function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 200);
+    camera.position.set(0, 0, 7.2);
+
+    scene.add(new THREE.AmbientLight(0x9fc8c2, 0.65));
+    var key = new THREE.DirectionalLight(0xffffff, 1.9); key.position.set(4, 4, 6); scene.add(key);
+    var fill = new THREE.DirectionalLight(accent, 0.9); fill.position.set(-5, -2, 4); scene.add(fill);
+    var rim = new THREE.PointLight(0xff5a3c, 16, 36); rim.position.set(-3, 3, -3); scene.add(rim);
+
+    var world = new THREE.Group(); scene.add(world);
+    var core = new THREE.Group(); world.add(core);
+
+    if (isPrivacy) {
+      /* Shield core: faceted inner gem + wireframe icosahedron shell */
+      var inner = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(0.74, 0),
+        new THREE.MeshStandardMaterial({ color: 0x0e4f4a, emissive: 0x1fd8c6, emissiveIntensity: 0.32, roughness: 0.35, metalness: 0.25, flatShading: true })
+      );
+      core.add(inner);
+      var shell = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(1.08, 1),
+        new THREE.MeshBasicMaterial({ color: 0x1fd8c6, wireframe: true, transparent: true, opacity: 0.62 })
+      );
+      core.add(shell);
+      var shell2 = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(1.22, 0),
+        new THREE.MeshBasicMaterial({ color: 0xffb454, wireframe: true, transparent: true, opacity: 0.22 })
+      );
+      shell2.rotation.set(0.5, 0.3, 0.2); core.add(shell2);
+      core.userData.inner = inner; core.userData.shell = shell; core.userData.shell2 = shell2;
+    } else {
+      /* Accord core: torus knot seal inside a dodecahedron cage */
+      var knot = new THREE.Mesh(
+        new THREE.TorusKnotGeometry(0.56, 0.19, 120, 14),
+        new THREE.MeshStandardMaterial({ color: 0x8a4a12, emissive: 0xff5a3c, emissiveIntensity: 0.22, roughness: 0.38, metalness: 0.3, flatShading: true })
+      );
+      core.add(knot);
+      var cage = new THREE.Mesh(
+        new THREE.DodecahedronGeometry(1.1, 0),
+        new THREE.MeshBasicMaterial({ color: 0xffb454, wireframe: true, transparent: true, opacity: 0.58 })
+      );
+      core.add(cage);
+      var cage2 = new THREE.Mesh(
+        new THREE.OctahedronGeometry(1.28, 0),
+        new THREE.MeshBasicMaterial({ color: 0x1fd8c6, wireframe: true, transparent: true, opacity: 0.2 })
+      );
+      cage2.rotation.set(0.4, 0.6, 0.1); core.add(cage2);
+      core.userData.inner = knot; core.userData.shell = cage; core.userData.shell2 = cage2;
+    }
+
+    /* Orbit rings */
+    var rings = [];
+    function addRing(radius, tube, color, opacity, rx, ry) {
+      var m = new THREE.Mesh(
+        new THREE.TorusGeometry(radius, tube, 10, 140),
+        new THREE.MeshBasicMaterial({ color: color, transparent: true, opacity: opacity })
+      );
+      m.rotation.set(rx, ry, 0); world.add(m); rings.push(m); return m;
+    }
+    addRing(1.5, 0.022, accent, 0.85, Math.PI / 2.25, 0.2);
+    addRing(1.72, 0.016, accent2, 0.55, Math.PI / 1.8, -0.5);
+    addRing(1.94, 0.012, 0xff5a3c, 0.42, Math.PI / 2.6, 0.8);
+
+    /* Orbiting nodes on the outer ring */
+    var nodes = new THREE.Group(); world.add(nodes);
+    var nodeGeo = new THREE.SphereGeometry(0.055, 14, 10);
+    for (var n = 0; n < 9; n++) {
+      var nm = new THREE.Mesh(nodeGeo, new THREE.MeshBasicMaterial({ color: n % 3 === 0 ? 0xff5a3c : accent }));
+      var na = (n / 9) * Math.PI * 2;
+      nm.position.set(Math.cos(na) * 1.94, Math.sin(na) * 0.42, Math.sin(na) * 1.94 * 0.38);
+      nodes.add(nm);
+    }
+
+    /* Floating shards */
+    var shardGeo = new THREE.TetrahedronGeometry(0.075, 0);
+    var shardMat = new THREE.MeshStandardMaterial({ color: 0xa9c8c2, roughness: 0.55, metalness: 0.35, flatShading: true });
+    var shards = new THREE.InstancedMesh(shardGeo, shardMat, 64);
+    var dummy = new THREE.Object3D();
+    for (var s = 0; s < 64; s++) {
+      var sa = rnd() * Math.PI * 2, sr = 1.7 + rnd() * 1.5;
+      dummy.position.set(Math.cos(sa) * sr, (rnd() - 0.5) * 2.4, Math.sin(sa) * sr * 0.55 - 0.3);
+      dummy.rotation.set(rnd() * 3, rnd() * 3, rnd() * 3);
+      var ss = 0.55 + rnd() * 1.25; dummy.scale.set(ss, ss, ss); dummy.updateMatrix();
+      shards.setMatrixAt(s, dummy.matrix);
+    }
+    world.add(shards);
+
+    /* Particle field */
+    var count = 520;
+    var pos = new Float32Array(count * 3), col = new Float32Array(count * 3);
+    var palette = [new THREE.Color(0xffffff), new THREE.Color(accent), new THREE.Color(accent2), new THREE.Color(0xff5a3c)];
+    for (var p = 0; p < count; p++) {
+      var pr = 2.4 + rnd() * 5.2, pt = rnd() * Math.PI * 2, pp = Math.acos(2 * rnd() - 1);
+      pos[p * 3] = pr * Math.sin(pp) * Math.cos(pt);
+      pos[p * 3 + 1] = pr * Math.cos(pp) * 0.72;
+      pos[p * 3 + 2] = -Math.abs(pr * Math.sin(pp) * Math.sin(pt)) - 1.2;
+      var pc = palette[Math.floor(rnd() * palette.length)];
+      col[p * 3] = pc.r; col[p * 3 + 1] = pc.g; col[p * 3 + 2] = pc.b;
+    }
+    var pgeo = new THREE.BufferGeometry();
+    pgeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    pgeo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+    var points = new THREE.Points(pgeo, new THREE.PointsMaterial({ size: 0.16, map: dotTex, vertexColors: true, transparent: true, opacity: 0.9, depthWrite: false }));
+    scene.add(points);
+
+    function layout() {
+      var w = container.clientWidth || hero.clientWidth || 1;
+      var h = container.clientHeight || hero.clientHeight || 1;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      if (w < 760) { world.position.set(0, 1.45, 0); world.scale.setScalar(0.82); }
+      else { world.position.set(2.65, 0.28, 0); world.scale.setScalar(1.04); }
+      camera.updateProjectionMatrix();
+    }
+    layout(); window.addEventListener('resize', layout);
+
+    var paused = false, dragging = false, lastX = 0, lastY = 0;
+    var velY = 0, velX = 0, rotY = isPrivacy ? 0.35 : -0.3, rotX = 0.12;
+    var parX = 0, parY = 0, parTX = 0, parTY = 0;
+    hero.addEventListener('pointerdown', function (ev) {
+      if (ev.target.closest && ev.target.closest('a,button')) return;
+      dragging = true; lastX = ev.clientX; lastY = ev.clientY;
+    });
+    window.addEventListener('pointermove', function (ev) {
+      if (!page.classList.contains('active')) return;
+      if (dragging) {
+        var dx = ev.clientX - lastX, dy = ev.clientY - lastY;
+        lastX = ev.clientX; lastY = ev.clientY;
+        velY = dx * 0.005; velX = dy * 0.003; rotY += velY; rotX += velX;
+        if (rotX > 0.65) rotX = 0.65; if (rotX < -0.65) rotX = -0.65;
+      } else {
+        var r = hero.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight) {
+          parTX = ((ev.clientX - r.left) / Math.max(r.width, 1) - 0.5) * 0.45;
+          parTY = ((ev.clientY - r.top) / Math.max(r.height, 1) - 0.5) * 0.28;
+        }
+      }
+    });
+    window.addEventListener('pointerup', function () { dragging = false; });
+    window.addEventListener('pointercancel', function () { dragging = false; });
+    if (pauseBtn) pauseBtn.addEventListener('click', function () {
+      paused = !paused;
+      pauseBtn.textContent = paused ? 'Resume 3D' : 'Pause 3D';
+      pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+    });
+
+    var visible = true;
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { threshold: 0.02 }).observe(hero);
+
+    var clock = new THREE.Clock();
+    function tick() {
+      requestAnimationFrame(tick);
+      if (!visible || document.hidden || !page.classList.contains('active')) return;
+      var t = clock.getElapsedTime();
+      try {
+        if (!paused) {
+          if (!reduced) {
+            core.rotation.y += isPrivacy ? 0.0032 : 0.0026;
+            core.rotation.x += 0.0011;
+            if (core.userData.shell2) core.userData.shell2.rotation.y -= 0.0016;
+            rings[0].rotation.z += 0.0016; rings[1].rotation.z -= 0.0011; rings[2].rotation.z += 0.0008;
+            nodes.rotation.y += 0.0035; nodes.rotation.z = Math.sin(t * 0.35) * 0.12;
+            shards.rotation.y -= 0.0009; points.rotation.y += 0.00018;
+            if (core.userData.inner) core.userData.inner.rotation.y -= 0.002;
+          }
+          if (!dragging) { rotY += velY; rotX += velX; velY *= 0.94; velX *= 0.94; if (rotX > 0.65) rotX = 0.65; if (rotX < -0.65) rotX = -0.65; }
+        }
+        var scrollSpin = Math.min(window.scrollY || 0, 1400) * 0.00035;
+        world.rotation.y = rotY + scrollSpin + (reduced ? 0 : Math.sin(t * 0.22) * 0.05);
+        world.rotation.x = rotX;
+        var baseY = window.innerWidth < 760 ? 1.45 : 0.28;
+        world.position.y += ((baseY + (reduced ? 0 : Math.sin(t * 0.65) * 0.07)) - world.position.y) * 0.06;
+        parX += (parTX - parX) * 0.045; parY += (parTY - parY) * 0.045;
+        camera.position.x = parX; camera.position.y = -parY;
+        camera.lookAt(window.innerWidth < 760 ? 0 : 1.15, 0.25, 0);
+        renderer.render(scene, camera);
+      } catch (e) {}
+    }
+    tick();
+  }
+
+  var containers = document.querySelectorAll('[data-three-legal]');
+  for (var c = 0; c < containers.length; c++) initLegal(containers[c]);
 })();
 </script>
 </body>
