@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="Codelab Game Studio is an independent game studio crafting vast space exploration adventures for Android on Google Play. Explore infinite worlds, discover alien life, and build your frontier.">
-<link rel="icon" href="data:,">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060e17'/%3E%3Ccircle cx='32' cy='30' r='13' fill='%231fd8c6'/%3E%3Ccircle cx='27' cy='25' r='4' fill='%23ffb454' opacity='.85'/%3E%3Ccircle cx='37' cy='35' r='3' fill='%23ff5a3c' opacity='.8'/%3E%3Cellipse cx='32' cy='34' rx='24' ry='7' fill='none' stroke='%23ffb454' stroke-width='3.5' transform='rotate(-18 32 34)'/%3E%3Ccircle cx='52' cy='12' r='2.2' fill='%23ffffff'/%3E%3Ccircle cx='10' cy='14' r='1.6' fill='%23ffffff' opacity='.8'/%3E%3C/svg%3E">
 <title>Codelab Game Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,7 +157,9 @@ ul.feat li::before{content:"";position:absolute;left:2px;top:17px;width:8px;heig
 .page[data-page="terms"] .legal-hero::before{background-image:linear-gradient(rgba(255,180,84,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,180,84,.07) 1px,transparent 1px)}
 .three-legal{position:absolute;inset:0;z-index:1}
 .three-legal canvas{display:block;width:100%;height:100%}
-.legal-hero-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(6,14,23,.88) 0%,rgba(6,14,23,.62) 46%,transparent 72%),linear-gradient(0deg,rgba(6,14,23,.88),transparent 52%);pointer-events:none}
+.legal-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(420px 300px at 79% 42%,rgba(255,170,80,.20),transparent 65%),radial-gradient(300px 220px at 79% 42%,rgba(31,216,198,.12),transparent 70%);z-index:0;pointer-events:none}
+.page[data-page="terms"] .legal-hero::after{background:radial-gradient(420px 300px at 79% 42%,rgba(31,216,198,.16),transparent 65%),radial-gradient(300px 220px at 79% 42%,rgba(255,180,84,.14),transparent 70%)}
+.legal-hero-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(6,14,23,.86) 0%,rgba(6,14,23,.45) 44%,transparent 68%),linear-gradient(0deg,rgba(6,14,23,.82),transparent 48%);pointer-events:none}
 .legal-hero-content{position:relative;z-index:3;padding:34px 34px 30px;max-width:620px;pointer-events:none}
 .legal-hero-content a,.legal-hero-content button{pointer-events:auto}
 .legal-hero-content h1{font-size:clamp(2rem,5.2vw,3.4rem);text-transform:uppercase;line-height:.98;letter-spacing:.01em}
@@ -442,14 +444,14 @@ footer p{color:var(--faint);font-size:.94rem}
     <div class="legal-hero" data-legal-hero="privacy">
       <div class="three-legal" data-three-legal="privacy" aria-hidden="true"></div>
       <div class="legal-hero-shade"></div>
-      <div class="legal-hero-top"><span class="legal-live">Live 3D &bull; Shield Core</span><span class="legal-coord">Sector // Privacy Vault 07</span></div>
+      <div class="legal-hero-top"><span class="legal-live">Live 3D &bull; Black Hole</span><span class="legal-coord">Sector // Privacy Vault 07</span></div>
       <div class="legal-hero-content">
         <p class="mono kicker" style="margin-bottom:12px">Legal</p>
         <h1>Privacy <em>Policy</em></h1>
         <p class="updated mono">Last updated: November 20, 2026</p>
         <p class="legal-lede">This Privacy Policy explains what information Codelab Game Studio (&ldquo;Codelab&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects when you play our mobile games and visit this website, how we use it, and the choices you have. It applies to all games published by Codelab Game Studio on Google Play, including Stellar Drift: Odyssey, Abyssal Frontier, and Frontier Worlds.</p>
         <div class="legal-badges" aria-label="Privacy highlights"><span class="legal-badge">No sale of personal data</span><span class="legal-badge">Ad choices on device</span><span class="legal-badge">Rights &amp; contact</span></div>
-        <div class="legal-controls"><span class="legal-hint">Drag the shield to rotate &bull; Move for parallax</span><button type="button" class="legal-pause" data-legal-pause="privacy" aria-pressed="false">Pause 3D</button></div>
+        <div class="legal-controls"><span class="legal-hint">Drag the black hole to tilt it &bull; Move for parallax</span><button type="button" class="legal-pause" data-legal-pause="privacy" aria-pressed="false">Pause 3D</button></div>
         <div class="legal-stats"><div class="legal-stat"><b>9</b><span>Policy sections</span></div><div class="legal-stat"><b>3</b><span>Third-party services listed</span></div><div class="legal-stat"><b>1</b><span>Contact email</span></div></div>
       </div>
     </div>
@@ -502,14 +504,14 @@ footer p{color:var(--faint);font-size:.94rem}
     <div class="legal-hero" data-legal-hero="terms">
       <div class="three-legal" data-three-legal="terms" aria-hidden="true"></div>
       <div class="legal-hero-shade"></div>
-      <div class="legal-hero-top"><span class="legal-live">Live 3D &bull; Accord Core</span><span class="legal-coord">Sector // Terms Archive 10</span></div>
+      <div class="legal-hero-top"><span class="legal-live">Live 3D &bull; Orbital Planet</span><span class="legal-coord">Sector // Terms Archive 10</span></div>
       <div class="legal-hero-content">
         <p class="mono kicker" style="margin-bottom:12px">Legal</p>
         <h1>Terms of <em>Service</em></h1>
         <p class="updated mono">Last updated: November 20, 2026</p>
         <p class="legal-lede">These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the games and this website provided by Codelab Game Studio (&ldquo;Codelab&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). By downloading, installing, or playing any of our games, you agree to these Terms. If you do not agree, please do not use our games.</p>
         <div class="legal-badges" aria-label="Terms highlights"><span class="legal-badge">License to play</span><span class="legal-badge">Fair play rules</span><span class="legal-badge">Google Play purchases</span></div>
-        <div class="legal-controls"><span class="legal-hint">Drag the core to rotate &bull; Move for parallax</span><button type="button" class="legal-pause" data-legal-pause="terms" aria-pressed="false">Pause 3D</button></div>
+        <div class="legal-controls"><span class="legal-hint">Drag the planet to spin it &bull; Move for parallax</span><button type="button" class="legal-pause" data-legal-pause="terms" aria-pressed="false">Pause 3D</button></div>
         <div class="legal-stats"><div class="legal-stat"><b>10</b><span>Terms sections</span></div><div class="legal-stat"><b>Android</b><span>Platform</span></div><div class="legal-stat"><b>Google Play</b><span>Payments &amp; refunds</span></div></div>
       </div>
     </div>
@@ -876,9 +878,11 @@ footer p{color:var(--faint);font-size:.94rem}
 
   /* Responsive layout: planet sits right of the headline on desktop,
      up in the sky area on phones where the copy sits low. */
+  var heroW = 0, heroH = 0;
   function layout() {
     var w = container.clientWidth || hero.clientWidth || 1;
     var h = container.clientHeight || hero.clientHeight || 1;
+    heroW = container.clientWidth || 0; heroH = container.clientHeight || 0;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     if (w < 760) {
@@ -943,6 +947,9 @@ footer p{color:var(--faint);font-size:.94rem}
     requestAnimationFrame(tick);
     var homePage = document.querySelector('[data-page="home"]');
     if (!heroVisible || document.hidden || (homePage && !homePage.classList.contains('active'))) return;
+    /* Self-heal size if the hero was hidden (display:none) at first layout,
+       e.g. landing directly on another route and navigating back home. */
+    if (container.clientWidth && (container.clientWidth !== heroW || container.clientHeight !== heroH)) layout();
     var t = clock.getElapsedTime();
     try {
       if (!paused) {
@@ -977,10 +984,19 @@ footer p{color:var(--faint);font-size:.94rem}
 })();
 </script>
 <script>
-/* ============ Three.js legal stages: Privacy shield + Terms accord core ============
-   Dark-scheme 3D heroes for the legal pages. Decorative and interactive:
-   drag to rotate, move for parallax, pause per stage. If WebGL fails the
-   gradient + grid hero underneath still looks complete. */
+/* ============ Three.js legal stages: Privacy BLACK HOLE + Terms ORBITAL PLANET ============
+   Privacy: a black hole with a glowing accretion disk, photon ring,
+   gravitational-lensing halo and infalling particles.
+   Terms: a living planet with atmosphere, moons and a starfield.
+   Both are interactive: drag to rotate, move the mouse for parallax,
+   scroll for a slow spin, pause per stage.
+   KEY FIX: the SPA keeps inactive pages at display:none, so a stage that is
+   sized at page load gets a 0x0 (then 1x1) canvas that CSS stretches into a
+   blurry wash with no visible object. Each stage now re-measures itself
+   whenever its page becomes active, on resize (ResizeObserver), and on
+   every frame while visible, so the 3D object and the parallax are always
+   really there. Decorative only: if WebGL fails, the dark gradient + grid
+   hero underneath still looks complete. */
 (function () {
   if (typeof THREE === 'undefined') {
     var pb = document.querySelectorAll('[data-legal-pause]');
@@ -1001,145 +1017,337 @@ footer p{color:var(--faint);font-size:.94rem}
   }
   var dotTex = softDotTex();
 
+  /* Radial glow sprite texture (warm core fading out) for the lensing halo */
+  function glowTex() {
+    var c = document.createElement('canvas'); c.width = 256; c.height = 256;
+    var g = c.getContext('2d');
+    var grad = g.createRadialGradient(128, 128, 0, 128, 128, 128);
+    grad.addColorStop(0, 'rgba(255,190,110,0)');
+    grad.addColorStop(0.34, 'rgba(255,170,80,.10)');
+    grad.addColorStop(0.46, 'rgba(255,205,130,.55)');
+    grad.addColorStop(0.55, 'rgba(255,150,60,.20)');
+    grad.addColorStop(0.75, 'rgba(255,120,50,.05)');
+    grad.addColorStop(1, 'rgba(255,120,50,0)');
+    g.fillStyle = grad; g.fillRect(0, 0, 256, 256);
+    return new THREE.CanvasTexture(c);
+  }
+
+  /* Accretion-disk texture: x wraps around the disk, y runs inner->outer.
+     Bright white-amber at the inner edge, streaked, fading to deep orange. */
+  function diskTexture(rnd) {
+    var c = document.createElement('canvas'); c.width = 1024; c.height = 256;
+    var g = c.getContext('2d');
+    var grad = g.createLinearGradient(0, 256, 0, 0);
+    grad.addColorStop(0, 'rgba(255,246,220,1)');
+    grad.addColorStop(0.16, 'rgba(255,214,130,.98)');
+    grad.addColorStop(0.42, 'rgba(255,158,60,.85)');
+    grad.addColorStop(0.72, 'rgba(214,92,26,.45)');
+    grad.addColorStop(1, 'rgba(120,42,10,0)');
+    g.fillStyle = grad; g.fillRect(0, 0, 1024, 256);
+    for (var s = 0; s < 900; s++) {
+      var y = Math.pow(rnd(), 1.4) * 250;
+      var x = rnd() * 1024, len = 30 + rnd() * 190;
+      g.strokeStyle = rnd() > 0.72 ? 'rgba(255,252,240,.75)' : (rnd() > 0.4 ? 'rgba(255,170,80,.5)' : 'rgba(150,55,15,.45)');
+      g.lineWidth = 0.6 + rnd() * 2.4;
+      g.beginPath(); g.moveTo(x, y); g.lineTo(x + len, y + (rnd() - 0.5) * 3); g.stroke();
+    }
+    for (var p = 0; p < 2600; p++) {
+      g.fillStyle = rnd() > 0.6 ? 'rgba(255,240,210,.8)' : 'rgba(255,140,50,.6)';
+      g.fillRect(rnd() * 1024, Math.pow(rnd(), 1.3) * 250, 1.6, 1.6);
+    }
+    var tex = new THREE.CanvasTexture(c);
+    tex.wrapS = THREE.RepeatWrapping;
+    if ('colorSpace' in tex && THREE.SRGBColorSpace) tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
+
+  /* Ring geometry with polar UVs: u = angle, v = radial (0 inner, 1 outer),
+     baked flat into the XZ plane so a group rotation.y spins it cleanly. */
+  function diskGeometry(inner, outer) {
+    var geo = new THREE.RingGeometry(inner, outer, 180, 1);
+    var pos = geo.attributes.position, uv = geo.attributes.uv;
+    var v = new THREE.Vector3();
+    for (var i = 0; i < pos.count; i++) {
+      v.fromBufferAttribute(pos, i);
+      var t = (v.length() - inner) / (outer - inner);
+      var a = Math.atan2(v.y, v.x) / (Math.PI * 2) + 0.5;
+      uv.setXY(i, a, t);
+    }
+    geo.rotateX(-Math.PI / 2);
+    return geo;
+  }
+
+  /* Procedural planet texture for Terms: teal oceans, warm continents */
+  function planetTexture(rnd) {
+    var c = document.createElement('canvas'); c.width = 1024; c.height = 512;
+    var g = c.getContext('2d');
+    var grad = g.createLinearGradient(0, 0, 0, 512);
+    grad.addColorStop(0, '#0d4256'); grad.addColorStop(0.5, '#0f6070'); grad.addColorStop(1, '#0b3a4e');
+    g.fillStyle = grad; g.fillRect(0, 0, 1024, 512);
+    var palette = ['#ffb454', '#d99a4e', '#ff5a3c', '#2ea88a', '#57b06a', '#1fd8c6'];
+    for (var k = 0; k < 30; k++) {
+      var cx = rnd() * 1024, cy = 80 + rnd() * 350, blobs = 8 + Math.floor(rnd() * 10);
+      for (var i = 0; i < blobs; i++) {
+        g.fillStyle = palette[Math.floor(rnd() * palette.length)];
+        g.globalAlpha = 0.55 + rnd() * 0.45;
+        var r = 10 + rnd() * 38;
+        g.beginPath();
+        g.ellipse(cx + (rnd() - 0.5) * 150, cy + (rnd() - 0.5) * 64, r, r * 0.62, rnd() * 3.14, 0, 6.2832);
+        g.fill();
+      }
+    }
+    g.globalAlpha = 0.9; g.fillStyle = '#eef7f5';
+    for (var p = 0; p < 40; p++) {
+      g.beginPath(); g.ellipse(rnd() * 1024, rnd() * 16, 14 + rnd() * 30, 6 + rnd() * 8, 0, 0, 6.2832); g.fill();
+      g.beginPath(); g.ellipse(rnd() * 1024, 496 + rnd() * 16, 14 + rnd() * 30, 6 + rnd() * 8, 0, 0, 6.2832); g.fill();
+    }
+    g.globalAlpha = 0.16; g.fillStyle = '#ffffff';
+    for (var s = 0; s < 2600; s++) g.fillRect(rnd() * 1024, rnd() * 512, 2, 2);
+    g.globalAlpha = 1;
+    var tex = new THREE.CanvasTexture(c);
+    if ('colorSpace' in tex && THREE.SRGBColorSpace) tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
+
+  function starfield(rnd, count, radius, size, paletteHex) {
+    var pos = new Float32Array(count * 3), col = new Float32Array(count * 3);
+    var palette = paletteHex.map(function (h) { return new THREE.Color(h); });
+    for (var i = 0; i < count; i++) {
+      var pr = radius * (0.45 + rnd() * 0.75), pt = rnd() * Math.PI * 2, pp = Math.acos(2 * rnd() - 1);
+      pos[i * 3] = pr * Math.sin(pp) * Math.cos(pt);
+      pos[i * 3 + 1] = pr * Math.cos(pp) * 0.75;
+      pos[i * 3 + 2] = -Math.abs(pr * Math.sin(pp) * Math.sin(pt)) - 1.5;
+      var pc = palette[Math.floor(rnd() * palette.length)];
+      col[i * 3] = pc.r; col[i * 3 + 1] = pc.g; col[i * 3 + 2] = pc.b;
+    }
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+    return new THREE.Points(geo, new THREE.PointsMaterial({
+      size: size, map: dotTex, vertexColors: true, transparent: true,
+      opacity: 0.95, depthWrite: false, blending: THREE.AdditiveBlending
+    }));
+  }
+
   function initLegal(container) {
     var variant = container.getAttribute('data-three-legal');
     var hero = container.closest ? container.closest('[data-legal-hero]') : null;
     var page = container.closest ? container.closest('.page') : null;
     var pauseBtn = document.querySelector('[data-legal-pause="' + variant + '"]');
     if (!hero || !page) return;
+    var isPrivacy = variant === 'privacy';
 
     var renderer;
     try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); }
     catch (e) { if (pauseBtn) pauseBtn.style.display = 'none'; return; }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setClearColor(0x000000, 0);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.12;
+    renderer.toneMappingExposure = 1.15;
     container.appendChild(renderer.domElement);
 
-    var isPrivacy = variant === 'privacy';
-    var accent = isPrivacy ? 0x1fd8c6 : 0xffb454;
-    var accent2 = isPrivacy ? 0xffb454 : 0x1fd8c6;
-    var seed = isPrivacy ? 987654 : 24681357;
+    var seed = isPrivacy ? 1357911 : 8642097;
     function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
 
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 200);
     camera.position.set(0, 0, 7.2);
 
-    scene.add(new THREE.AmbientLight(0x9fc8c2, 0.65));
-    var key = new THREE.DirectionalLight(0xffffff, 1.9); key.position.set(4, 4, 6); scene.add(key);
-    var fill = new THREE.DirectionalLight(accent, 0.9); fill.position.set(-5, -2, 4); scene.add(fill);
+    scene.add(new THREE.AmbientLight(0x9fc8c2, 0.7));
+    var key = new THREE.DirectionalLight(0xffe3c0, 2.1); key.position.set(4, 4, 6); scene.add(key);
+    var fill = new THREE.DirectionalLight(0x1fd8c6, 0.8); fill.position.set(-5, -2, 4); scene.add(fill);
     var rim = new THREE.PointLight(0xff5a3c, 16, 36); rim.position.set(-3, 3, -3); scene.add(rim);
 
     var world = new THREE.Group(); scene.add(world);
-    var core = new THREE.Group(); world.add(core);
+    var anim = {}; /* per-variant animated parts */
 
     if (isPrivacy) {
-      /* Shield core: faceted inner gem + wireframe icosahedron shell */
-      var inner = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(0.74, 0),
-        new THREE.MeshStandardMaterial({ color: 0x0e4f4a, emissive: 0x1fd8c6, emissiveIntensity: 0.32, roughness: 0.35, metalness: 0.25, flatShading: true })
+      /* ================= BLACK HOLE ================= */
+      var bh = new THREE.Group(); world.add(bh); anim.root = bh;
+
+      /* Lensing halo glow behind the hole */
+      var glow = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: glowTex(), transparent: true, opacity: 0.95,
+        blending: THREE.AdditiveBlending, depthWrite: false
+      }));
+      glow.scale.set(5.6, 5.6, 1); glow.position.z = -0.6;
+      bh.add(glow); anim.glow = glow;
+
+      /* Gravitational lensing shell: fresnel halo hugging the horizon */
+      var lens = new THREE.Mesh(
+        new THREE.SphereGeometry(1.0, 48, 36),
+        new THREE.ShaderMaterial({
+          vertexShader: 'varying vec3 vN; void main(){ vN = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+          fragmentShader: 'varying vec3 vN; void main(){ float i = pow(0.74 - dot(vN, vec3(0.0, 0.0, 1.0)), 3.0); gl_FragColor = vec4(1.0, 0.68, 0.30, 1.0) * i * 1.6; }',
+          blending: THREE.AdditiveBlending, side: THREE.BackSide, transparent: true, depthWrite: false
+        })
       );
-      core.add(inner);
-      var shell = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(1.08, 1),
-        new THREE.MeshBasicMaterial({ color: 0x1fd8c6, wireframe: true, transparent: true, opacity: 0.62 })
+      bh.add(lens); anim.lens = lens;
+
+      /* Event horizon: pure black sphere that swallows the glow behind it */
+      var horizon = new THREE.Mesh(
+        new THREE.SphereGeometry(0.72, 48, 36),
+        new THREE.MeshBasicMaterial({ color: 0x000000 })
       );
-      core.add(shell);
-      var shell2 = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(1.22, 0),
-        new THREE.MeshBasicMaterial({ color: 0xffb454, wireframe: true, transparent: true, opacity: 0.22 })
+      bh.add(horizon);
+
+      /* Photon ring: the bright thin ring of light orbiting the horizon */
+      var photon = new THREE.Mesh(
+        new THREE.TorusGeometry(0.8, 0.028, 12, 128),
+        new THREE.MeshBasicMaterial({ color: 0xffe9c4 })
       );
-      shell2.rotation.set(0.5, 0.3, 0.2); core.add(shell2);
-      core.userData.inner = inner; core.userData.shell = shell; core.userData.shell2 = shell2;
+      photon.rotation.x = 0.32;
+      bh.add(photon); anim.photon = photon;
+      var photon2 = new THREE.Mesh(
+        new THREE.TorusGeometry(0.87, 0.012, 10, 128),
+        new THREE.MeshBasicMaterial({ color: 0x1fd8c6, transparent: true, opacity: 0.85 })
+      );
+      photon2.rotation.x = 0.32;
+      bh.add(photon2);
+
+      /* Accretion disk, tilted toward the viewer */
+      var tilt = new THREE.Group();
+      tilt.rotation.set(0.52, 0, -0.16);
+      bh.add(tilt);
+      var diskTex = diskTexture(rnd);
+      var diskSpin = new THREE.Group(); tilt.add(diskSpin); anim.diskSpin = diskSpin;
+      var disk = new THREE.Mesh(
+        diskGeometry(0.9, 2.25),
+        new THREE.MeshBasicMaterial({ map: diskTex, transparent: true, opacity: 0.98, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending })
+      );
+      diskSpin.add(disk);
+      var diskOuter = new THREE.Mesh(
+        diskGeometry(0.9, 2.85),
+        new THREE.MeshBasicMaterial({ map: diskTex, transparent: true, opacity: 0.32, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending })
+      );
+      diskOuter.rotation.y = 1.7;
+      tilt.add(diskOuter); anim.diskOuter = diskOuter;
+
+      /* Matter spiralling in the disk plane */
+      var nP = 650, pPos = new Float32Array(nP * 3), pCol = new Float32Array(nP * 3);
+      var pPal = [new THREE.Color(0xfff2d8), new THREE.Color(0xffb454), new THREE.Color(0xff7a2e), new THREE.Color(0xffffff)];
+      for (var pi = 0; pi < nP; pi++) {
+        var pr2 = 0.95 + Math.pow(rnd(), 1.5) * 1.7, pa = rnd() * Math.PI * 2;
+        pPos[pi * 3] = Math.cos(pa) * pr2;
+        pPos[pi * 3 + 1] = (rnd() - 0.5) * 0.07;
+        pPos[pi * 3 + 2] = Math.sin(pa) * pr2;
+        var pc2 = pPal[Math.floor(rnd() * pPal.length)];
+        pCol[pi * 3] = pc2.r; pCol[pi * 3 + 1] = pc2.g; pCol[pi * 3 + 2] = pc2.b;
+      }
+      var pGeo = new THREE.BufferGeometry();
+      pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+      pGeo.setAttribute('color', new THREE.BufferAttribute(pCol, 3));
+      var diskPts = new THREE.Points(pGeo, new THREE.PointsMaterial({
+        size: 0.075, map: dotTex, vertexColors: true, transparent: true, opacity: 0.95,
+        depthWrite: false, blending: THREE.AdditiveBlending
+      }));
+      diskSpin.add(diskPts);
+
+      /* Background stars being lensed around the hole */
+      var stars = starfield(rnd, 620, 11, 0.14, [0xffffff, 0x1fd8c6, 0xffb454]);
+      scene.add(stars); anim.stars = stars;
     } else {
-      /* Accord core: torus knot seal inside a dodecahedron cage */
-      var knot = new THREE.Mesh(
-        new THREE.TorusKnotGeometry(0.56, 0.19, 120, 14),
-        new THREE.MeshStandardMaterial({ color: 0x8a4a12, emissive: 0xff5a3c, emissiveIntensity: 0.22, roughness: 0.38, metalness: 0.3, flatShading: true })
+      /* ================= ORBITAL PLANET ================= */
+      var pg = new THREE.Group(); world.add(pg); anim.root = pg;
+      var spin = new THREE.Group(); pg.add(spin); anim.spin = spin;
+
+      var pTex = planetTexture(rnd);
+      var planet = new THREE.Mesh(
+        new THREE.SphereGeometry(0.98, 64, 48),
+        new THREE.MeshStandardMaterial({ map: pTex, bumpMap: pTex, bumpScale: 0.5, roughness: 0.75, metalness: 0.05 })
       );
-      core.add(knot);
-      var cage = new THREE.Mesh(
-        new THREE.DodecahedronGeometry(1.1, 0),
-        new THREE.MeshBasicMaterial({ color: 0xffb454, wireframe: true, transparent: true, opacity: 0.58 })
+      spin.add(planet);
+      var clouds = new THREE.Mesh(
+        new THREE.SphereGeometry(1.02, 48, 36),
+        new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.15, roughness: 1, depthWrite: false })
       );
-      core.add(cage);
-      var cage2 = new THREE.Mesh(
-        new THREE.OctahedronGeometry(1.28, 0),
-        new THREE.MeshBasicMaterial({ color: 0x1fd8c6, wireframe: true, transparent: true, opacity: 0.2 })
+      spin.add(clouds); anim.clouds = clouds;
+
+      /* Atmosphere glow */
+      var atmo = new THREE.Mesh(
+        new THREE.SphereGeometry(1.22, 48, 36),
+        new THREE.ShaderMaterial({
+          vertexShader: 'varying vec3 vN; void main(){ vN = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+          fragmentShader: 'varying vec3 vN; void main(){ float i = pow(0.68 - dot(vN, vec3(0.0, 0.0, 1.0)), 3.5); gl_FragColor = vec4(1.0, 0.70, 0.32, 1.0) * i; }',
+          blending: THREE.AdditiveBlending, side: THREE.BackSide, transparent: true, depthWrite: false
+        })
       );
-      cage2.rotation.set(0.4, 0.6, 0.1); core.add(cage2);
-      core.userData.inner = knot; core.userData.shell = cage; core.userData.shell2 = cage2;
+      pg.add(atmo);
+
+      /* Slim ring system */
+      var ringTilt = new THREE.Group(); ringTilt.rotation.set(0.5, 0, -0.22); pg.add(ringTilt);
+      function flatRing(inner, outer, color, opacity) {
+        var g2 = diskGeometry(inner, outer);
+        var m2 = new THREE.Mesh(g2, new THREE.MeshBasicMaterial({ color: color, transparent: true, opacity: opacity, side: THREE.DoubleSide, depthWrite: false }));
+        ringTilt.add(m2); return m2;
+      }
+      flatRing(1.32, 1.78, 0xffb454, 0.30);
+      flatRing(1.44, 1.62, 0x1fd8c6, 0.28);
+      anim.ringTilt = ringTilt;
+
+      /* Two moons */
+      var pivots = [];
+      function moon(r, size, color, speed, y) {
+        var pivot = new THREE.Group();
+        var mm = new THREE.Mesh(
+          new THREE.SphereGeometry(size, 28, 20),
+          new THREE.MeshStandardMaterial({ color: color, roughness: 0.7, metalness: 0.05 })
+        );
+        mm.position.set(r, y, 0);
+        pivot.add(mm); pivot.userData.speed = speed;
+        pg.add(pivot); pivots.push(pivot);
+      }
+      moon(2.35, 0.17, 0xffb454, 0.0035, 0.45);
+      moon(-2.6, 0.12, 0x1fd8c6, -0.0024, -0.7);
+      anim.pivots = pivots;
+
+      /* Dense starfield: the planet is surrounded by stars */
+      var starsA = starfield(rnd, 950, 12, 0.15, [0xffffff, 0x1fd8c6, 0xffb454, 0xff5a3c]);
+      scene.add(starsA); anim.stars = starsA;
+      var starsB = starfield(rnd, 130, 10, 0.34, [0xffffff, 0xffb454]);
+      scene.add(starsB); anim.starsB = starsB;
     }
 
-    /* Orbit rings */
-    var rings = [];
-    function addRing(radius, tube, color, opacity, rx, ry) {
-      var m = new THREE.Mesh(
-        new THREE.TorusGeometry(radius, tube, 10, 140),
-        new THREE.MeshBasicMaterial({ color: color, transparent: true, opacity: opacity })
-      );
-      m.rotation.set(rx, ry, 0); world.add(m); rings.push(m); return m;
-    }
-    addRing(1.5, 0.022, accent, 0.85, Math.PI / 2.25, 0.2);
-    addRing(1.72, 0.016, accent2, 0.55, Math.PI / 1.8, -0.5);
-    addRing(1.94, 0.012, 0xff5a3c, 0.42, Math.PI / 2.6, 0.8);
-
-    /* Orbiting nodes on the outer ring */
-    var nodes = new THREE.Group(); world.add(nodes);
-    var nodeGeo = new THREE.SphereGeometry(0.055, 14, 10);
-    for (var n = 0; n < 9; n++) {
-      var nm = new THREE.Mesh(nodeGeo, new THREE.MeshBasicMaterial({ color: n % 3 === 0 ? 0xff5a3c : accent }));
-      var na = (n / 9) * Math.PI * 2;
-      nm.position.set(Math.cos(na) * 1.94, Math.sin(na) * 0.42, Math.sin(na) * 1.94 * 0.38);
-      nodes.add(nm);
-    }
-
-    /* Floating shards */
-    var shardGeo = new THREE.TetrahedronGeometry(0.075, 0);
-    var shardMat = new THREE.MeshStandardMaterial({ color: 0xa9c8c2, roughness: 0.55, metalness: 0.35, flatShading: true });
-    var shards = new THREE.InstancedMesh(shardGeo, shardMat, 64);
-    var dummy = new THREE.Object3D();
-    for (var s = 0; s < 64; s++) {
-      var sa = rnd() * Math.PI * 2, sr = 1.7 + rnd() * 1.5;
-      dummy.position.set(Math.cos(sa) * sr, (rnd() - 0.5) * 2.4, Math.sin(sa) * sr * 0.55 - 0.3);
-      dummy.rotation.set(rnd() * 3, rnd() * 3, rnd() * 3);
-      var ss = 0.55 + rnd() * 1.25; dummy.scale.set(ss, ss, ss); dummy.updateMatrix();
-      shards.setMatrixAt(s, dummy.matrix);
-    }
-    world.add(shards);
-
-    /* Particle field */
-    var count = 520;
-    var pos = new Float32Array(count * 3), col = new Float32Array(count * 3);
-    var palette = [new THREE.Color(0xffffff), new THREE.Color(accent), new THREE.Color(accent2), new THREE.Color(0xff5a3c)];
-    for (var p = 0; p < count; p++) {
-      var pr = 2.4 + rnd() * 5.2, pt = rnd() * Math.PI * 2, pp = Math.acos(2 * rnd() - 1);
-      pos[p * 3] = pr * Math.sin(pp) * Math.cos(pt);
-      pos[p * 3 + 1] = pr * Math.cos(pp) * 0.72;
-      pos[p * 3 + 2] = -Math.abs(pr * Math.sin(pp) * Math.sin(pt)) - 1.2;
-      var pc = palette[Math.floor(rnd() * palette.length)];
-      col[p * 3] = pc.r; col[p * 3 + 1] = pc.g; col[p * 3 + 2] = pc.b;
-    }
-    var pgeo = new THREE.BufferGeometry();
-    pgeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    pgeo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-    var points = new THREE.Points(pgeo, new THREE.PointsMaterial({ size: 0.16, map: dotTex, vertexColors: true, transparent: true, opacity: 0.9, depthWrite: false }));
-    scene.add(points);
-
+    /* ---- Layout: re-measure EVERY time the stage could have changed size.
+       This is the fix for the invisible 3D: never trust a size measured
+       while the page was display:none. ---- */
+    var lastW = 0, lastH = 0, baseX = 2.45, baseY = 0.25, lookX = 0.95;
     function layout() {
-      var w = container.clientWidth || hero.clientWidth || 1;
-      var h = container.clientHeight || hero.clientHeight || 1;
+      var w = container.clientWidth || hero.clientWidth || 0;
+      var h = container.clientHeight || hero.clientHeight || 0;
+      if (!w || !h) return;
+      lastW = w; lastH = h;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
-      if (w < 760) { world.position.set(0, 1.45, 0); world.scale.setScalar(0.82); }
-      else { world.position.set(2.65, 0.28, 0); world.scale.setScalar(1.04); }
+      if (w < 760) {
+        baseX = 0; baseY = 1.5; lookX = 0;
+        world.scale.setScalar(isPrivacy ? 0.8 : 0.85);
+      } else if (w / h < 1.55) {
+        baseX = 1.95; baseY = 0.25; lookX = 0.75;
+        world.scale.setScalar(0.88);
+      } else {
+        baseX = 2.45; baseY = 0.25; lookX = 0.95;
+        world.scale.setScalar(1.05);
+      }
+      world.position.x = baseX;
       camera.updateProjectionMatrix();
     }
-    layout(); window.addEventListener('resize', layout);
+    layout();
+    window.addEventListener('resize', layout);
+    if ('ResizeObserver' in window) {
+      try { new ResizeObserver(function () { layout(); }).observe(hero); } catch (e) {}
+    }
+    if ('MutationObserver' in window) {
+      try {
+        new MutationObserver(function () {
+          if (page.classList.contains('active')) { layout(); setTimeout(layout, 60); }
+        }).observe(page, { attributes: true, attributeFilter: ['class'] });
+      } catch (e) {}
+    }
 
+    /* ---- Interaction: drag to rotate, mouse move for parallax ---- */
     var paused = false, dragging = false, lastX = 0, lastY = 0;
-    var velY = 0, velX = 0, rotY = isPrivacy ? 0.35 : -0.3, rotX = 0.12;
+    var velY = 0, velX = 0, rotY = isPrivacy ? 0.2 : 0.4, rotX = 0.1;
     var parX = 0, parY = 0, parTX = 0, parTY = 0;
     hero.addEventListener('pointerdown', function (ev) {
       if (ev.target.closest && ev.target.closest('a,button')) return;
@@ -1153,11 +1361,8 @@ footer p{color:var(--faint);font-size:.94rem}
         velY = dx * 0.005; velX = dy * 0.003; rotY += velY; rotX += velX;
         if (rotX > 0.65) rotX = 0.65; if (rotX < -0.65) rotX = -0.65;
       } else {
-        var r = hero.getBoundingClientRect();
-        if (r.bottom > 0 && r.top < window.innerHeight) {
-          parTX = ((ev.clientX - r.left) / Math.max(r.width, 1) - 0.5) * 0.45;
-          parTY = ((ev.clientY - r.top) / Math.max(r.height, 1) - 0.5) * 0.28;
-        }
+        parTX = (ev.clientX / Math.max(window.innerWidth, 1) - 0.5) * 2;
+        parTY = (ev.clientY / Math.max(window.innerHeight, 1) - 0.5) * 2;
       }
     });
     window.addEventListener('pointerup', function () { dragging = false; });
@@ -1169,36 +1374,62 @@ footer p{color:var(--faint);font-size:.94rem}
     });
 
     var visible = true;
-    if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { threshold: 0.02 }).observe(hero);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { threshold: 0.02 }).observe(hero);
+    }
 
     var clock = new THREE.Clock();
     function tick() {
       requestAnimationFrame(tick);
-      if (!visible || document.hidden || !page.classList.contains('active')) return;
+      if (!page.classList.contains('active') || document.hidden) return;
+      /* Self-heal the canvas size while visible (SPA activation, font
+         loads, orientation changes): this keeps the object crisp and
+         on-stage instead of a stretched 1x1 blur. */
+      if (container.clientWidth && (container.clientWidth !== lastW || container.clientHeight !== lastH)) layout();
+      if (!visible || !lastW) return;
       var t = clock.getElapsedTime();
       try {
-        if (!paused) {
-          if (!reduced) {
-            core.rotation.y += isPrivacy ? 0.0032 : 0.0026;
-            core.rotation.x += 0.0011;
-            if (core.userData.shell2) core.userData.shell2.rotation.y -= 0.0016;
-            rings[0].rotation.z += 0.0016; rings[1].rotation.z -= 0.0011; rings[2].rotation.z += 0.0008;
-            nodes.rotation.y += 0.0035; nodes.rotation.z = Math.sin(t * 0.35) * 0.12;
-            shards.rotation.y -= 0.0009; points.rotation.y += 0.00018;
-            if (core.userData.inner) core.userData.inner.rotation.y -= 0.002;
+        if (!paused && !reduced) {
+          if (isPrivacy) {
+            if (anim.diskSpin) anim.diskSpin.rotation.y += 0.011;
+            if (anim.diskOuter) anim.diskOuter.rotation.y -= 0.004;
+            if (anim.photon) { var ps = 1 + Math.sin(t * 2.1) * 0.025; anim.photon.scale.set(ps, ps, 1); }
+            if (anim.glow) anim.glow.material.opacity = 0.85 + Math.sin(t * 1.4) * 0.12;
+            if (anim.root) anim.root.rotation.y += 0.0012;
+          } else {
+            if (anim.spin) anim.spin.rotation.y += 0.0022;
+            if (anim.clouds) anim.clouds.rotation.y += 0.0009;
+            if (anim.ringTilt) anim.ringTilt.rotation.y += 0.001;
+            if (anim.pivots) for (var mi = 0; mi < anim.pivots.length; mi++) anim.pivots[mi].rotation.y += anim.pivots[mi].userData.speed;
+            if (anim.starsB) anim.starsB.material.opacity = 0.7 + Math.sin(t * 1.8) * 0.3;
           }
-          if (!dragging) { rotY += velY; rotX += velX; velY *= 0.94; velX *= 0.94; if (rotX > 0.65) rotX = 0.65; if (rotX < -0.65) rotX = -0.65; }
+          if (anim.stars) anim.stars.rotation.y += 0.00022;
+          if (!dragging) {
+            rotY += velY; rotX += velX; velY *= 0.94; velX *= 0.94;
+            if (rotX > 0.65) rotX = 0.65; if (rotX < -0.65) rotX = -0.65;
+          }
         }
-        var scrollSpin = Math.min(window.scrollY || 0, 1400) * 0.00035;
-        world.rotation.y = rotY + scrollSpin + (reduced ? 0 : Math.sin(t * 0.22) * 0.05);
-        world.rotation.x = rotX;
-        var baseY = window.innerWidth < 760 ? 1.45 : 0.28;
-        world.position.y += ((baseY + (reduced ? 0 : Math.sin(t * 0.65) * 0.07)) - world.position.y) * 0.06;
-        parX += (parTX - parX) * 0.045; parY += (parTY - parY) * 0.045;
-        camera.position.x = parX; camera.position.y = -parY;
-        camera.lookAt(window.innerWidth < 760 ? 0 : 1.15, 0.25, 0);
+        /* Scroll parallax: the stage slowly turns and drifts as the
+           hero scrolls out of view. */
+        var rect = hero.getBoundingClientRect();
+        var scrolled = Math.max(0, Math.min(-rect.top, 620));
+        var scrollSpin = scrolled * 0.0009;
+        var scrollLift = scrolled * 0.0009;
+
+        /* Mouse parallax, smoothed: camera, world offset AND world tilt
+           all move, at different rates, so the depth is unmistakable. */
+        parX += (parTX - parX) * 0.045;
+        parY += (parTY - parY) * 0.045;
+        world.rotation.y = rotY + scrollSpin + parX * 0.38 + (reduced ? 0 : Math.sin(t * 0.22) * 0.04);
+        world.rotation.x = rotX + parY * 0.22;
+        world.position.x = baseX + parX * 0.34;
+        var bob = reduced ? 0 : Math.sin(t * 0.65) * 0.06;
+        world.position.y += ((baseY + bob + scrollLift - parY * 0.2) - world.position.y) * 0.07;
+        camera.position.x = parX * 0.4;
+        camera.position.y = -parY * 0.26;
+        camera.lookAt(lookX, 0.22, 0);
         renderer.render(scene, camera);
-      } catch (e) {}
+      } catch (e) { /* decorative layer: never break the page */ }
     }
     tick();
   }
