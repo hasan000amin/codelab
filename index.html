@@ -150,11 +150,19 @@ ul.feat li::before{content:"";position:absolute;left:2px;top:17px;width:8px;heig
 /* Legal 3D — keeps the dark scheme, adds a live Three.js stage */
 .page[data-page="privacy"],.page[data-page="terms"]{position:relative;background:radial-gradient(900px 500px at 85% -5%,rgba(31,216,198,.14),transparent 60%),radial-gradient(700px 500px at 0% 22%,rgba(255,90,60,.08),transparent 55%),var(--bg)}
 .page[data-page="terms"]{background:radial-gradient(900px 500px at 85% -5%,rgba(255,180,84,.13),transparent 60%),radial-gradient(700px 500px at 0% 22%,rgba(31,216,198,.09),transparent 55%),var(--bg)}
+.page[data-page="games"]{position:relative;background:radial-gradient(900px 500px at 85% -5%,rgba(255,90,60,.13),transparent 60%),radial-gradient(700px 500px at 0% 22%,rgba(74,222,128,.08),transparent 55%),var(--bg)}
 .legal-wrap{max-width:980px}
 .legal-hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:linear-gradient(115deg,rgba(12,30,48,.96) 0%,rgba(8,22,36,.92) 48%,rgba(6,14,23,.72) 100%);min-height:430px;display:flex;align-items:flex-end;margin-top:28px;isolation:isolate;box-shadow:0 24px 60px rgba(0,0,0,.35)}
 .legal-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(31,216,198,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(31,216,198,.07) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(70% 90% at 78% 40%,#000 0%,transparent 78%);z-index:0;pointer-events:none}
 .page[data-page="terms"] .legal-hero{border-color:rgba(255,180,84,.28)}
 .page[data-page="terms"] .legal-hero::before{background-image:linear-gradient(rgba(255,180,84,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,180,84,.07) 1px,transparent 1px)}
+.page[data-page="games"] .legal-hero{border-color:rgba(255,90,60,.32)}
+.page[data-page="games"] .legal-hero::before{background-image:linear-gradient(rgba(255,90,60,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,90,60,.07) 1px,transparent 1px)}
+.page[data-page="games"] .legal-hero::after{background:radial-gradient(420px 300px at 79% 42%,rgba(255,90,60,.18),transparent 65%),radial-gradient(300px 220px at 79% 42%,rgba(74,222,128,.13),transparent 70%)}
+.page[data-page="games"] .legal-hero-content h1 em{color:var(--coral)}
+.page[data-page="games"] .legal-live{color:#ff8a70;border-color:rgba(255,90,60,.4)}
+.page[data-page="games"] .legal-live::before{background:var(--coral);box-shadow:0 0 12px var(--coral)}
+.page[data-page="games"] .legal-badge{border-color:rgba(255,90,60,.38);background:rgba(255,90,60,.09)}
 .three-legal{position:absolute;inset:0;z-index:1}
 .three-legal canvas{display:block;width:100%;height:100%}
 .legal-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(420px 300px at 79% 42%,rgba(255,170,80,.20),transparent 65%),radial-gradient(300px 220px at 79% 42%,rgba(31,216,198,.12),transparent 70%);z-index:0;pointer-events:none}
@@ -377,10 +385,18 @@ footer p{color:var(--faint);font-size:.94rem}
 <!-- ============ GAMES ============ -->
 <section class="page" data-page="games">
   <div class="wrap">
-    <div class="pagehead">
-      <p class="mono kicker">Our Games</p>
-      <h1>One universe, three ways to get lost in it</h1>
-      <p>All three titles below are concept games currently in development at Codelab Game Studio. They have not been released yet and are not available for download. This page presents the design concepts only. Final features, pricing, and release dates will be announced once development is complete.</p>
+    <div class="legal-hero" data-legal-hero="games">
+      <div class="three-legal" data-three-legal="games" aria-hidden="true"></div>
+      <div class="legal-hero-shade"></div>
+      <div class="legal-hero-top"><span class="legal-live">Live 3D &bull; Alien Invasion</span><span class="legal-coord">Sector // Invasion Front 03</span></div>
+      <div class="legal-hero-content">
+        <p class="mono kicker" style="margin-bottom:12px">Our Games</p>
+        <h1>One universe, three ways to get <em>lost</em> in it</h1>
+        <p class="legal-lede">All three titles below are concept games currently in development at Codelab Game Studio. They have not been released yet and are not available for download. This page presents the design concepts only. Final features, pricing, and release dates will be announced once development is complete.</p>
+        <div class="legal-badges" aria-label="Games highlights"><span class="legal-badge">Concept showcase</span><span class="legal-badge">In development</span><span class="legal-badge">Not yet released</span></div>
+        <div class="legal-controls"><span class="legal-hint">Drag to face the invasion &bull; Move for parallax</span><button type="button" class="legal-pause" data-legal-pause="games" aria-pressed="false">Pause 3D</button></div>
+        <div class="legal-stats"><div class="legal-stat"><b>3</b><span>Concept games</span></div><div class="legal-stat"><b>Android</b><span>In development for</span></div><div class="legal-stat"><b>TBA</b><span>Release dates</span></div></div>
+      </div>
     </div>
   </div>
   <section class="block" style="padding-top:26px">
@@ -984,7 +1000,7 @@ footer p{color:var(--faint);font-size:.94rem}
 })();
 </script>
 <script>
-/* ============ Three.js legal stages: Privacy BLACK HOLE + Terms STARSHIP TRAFFIC ============
+/* ============ Three.js stages: Privacy BLACK HOLE + Terms STARSHIP TRAFFIC + Games ALIEN INVASION ============
    Privacy: a black hole with a glowing accretion disk, photon ring,
    gravitational-lensing halo and infalling particles.
    Terms: a busy flight lane: starships loop around a ringed planet
@@ -1137,6 +1153,7 @@ footer p{color:var(--faint);font-size:.94rem}
     var pauseBtn = document.querySelector('[data-legal-pause="' + variant + '"]');
     if (!hero || !page) return;
     var isPrivacy = variant === 'privacy';
+    var isGames = variant === 'games';
 
     var renderer;
     try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); }
@@ -1247,6 +1264,262 @@ footer p{color:var(--faint);font-size:.94rem}
       /* Background stars being lensed around the hole */
       var stars = starfield(rnd, 620, 11, 0.14, [0xffffff, 0x1fd8c6, 0xffb454]);
       scene.add(stars); anim.stars = stars;
+    } else if (isGames) {
+      /* ================= ALIEN INVASION =================
+         A lush planet under attack: tentacled monsters ride its surface
+         as it turns, a mothership hovers overhead with a monster pilot
+         in its dome, a tractor beam hauls debris up off the surface,
+         drop pods rain down, drones patrol wide orbits, two scout
+         monsters tumble in open space, and alarm beacons pulse red. */
+      var inv = new THREE.Group(); world.add(inv); anim.root = inv;
+
+      /* ---- Monster factory: squashy body, glowing spikes, one big eye
+         on a stalk, a grin, and six swaying tentacles. ---- */
+      function makeMonster(bodyHex, glowHex, mScale) {
+        var m = new THREE.Group();
+        var bodyMat = new THREE.MeshStandardMaterial({ color: bodyHex, roughness: 0.5, metalness: 0.05 });
+        var darkMat = new THREE.MeshStandardMaterial({ color: 0x0b2018, roughness: 0.6, metalness: 0.05 });
+        var spikeMat = new THREE.MeshStandardMaterial({ color: glowHex, roughness: 0.4, metalness: 0.1, emissive: glowHex, emissiveIntensity: 0.45 });
+        var body = new THREE.Mesh(new THREE.SphereGeometry(0.16, 24, 18), bodyMat);
+        body.scale.set(1, 0.85, 1); body.position.y = 0.15; m.add(body);
+        for (var si = 0; si < 3; si++) {
+          var sa = (si / 3) * Math.PI * 2 + 0.5;
+          var spike = new THREE.Mesh(new THREE.ConeGeometry(0.032, 0.11, 8), spikeMat);
+          spike.position.set(Math.cos(sa) * 0.07, 0.28, Math.sin(sa) * 0.07);
+          spike.rotation.set(Math.sin(sa) * 0.5, 0, -Math.cos(sa) * 0.5);
+          m.add(spike);
+        }
+        var stalk = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.028, 0.1, 8), bodyMat);
+        stalk.position.set(0, 0.3, 0.03); stalk.rotation.x = 0.3; m.add(stalk);
+        var eye = new THREE.Group(); eye.position.set(0, 0.37, 0.06);
+        var white = new THREE.Mesh(new THREE.SphereGeometry(0.062, 16, 12), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.25 }));
+        eye.add(white);
+        var pupil = new THREE.Mesh(new THREE.SphereGeometry(0.03, 12, 10), darkMat);
+        pupil.position.set(0, 0.005, 0.045); eye.add(pupil);
+        var shine = new THREE.Sprite(new THREE.SpriteMaterial({
+          map: dotTex, color: glowHex, transparent: true, opacity: 0.9,
+          blending: THREE.AdditiveBlending, depthWrite: false
+        }));
+        shine.scale.set(0.17, 0.17, 1); shine.position.set(0, 0.01, 0.05); eye.add(shine);
+        m.add(eye); m.userData.eye = eye;
+        var mouth = new THREE.Mesh(new THREE.TorusGeometry(0.055, 0.012, 8, 20, Math.PI), darkMat);
+        mouth.position.set(0, 0.135, 0.135); mouth.rotation.set(0.15, 0, Math.PI); m.add(mouth);
+        var tents = [];
+        for (var ti = 0; ti < 6; ti++) {
+          var ta = (ti / 6) * Math.PI * 2 + 0.3;
+          var pivot = new THREE.Group();
+          pivot.position.set(Math.cos(ta) * 0.1, 0.06, Math.sin(ta) * 0.1);
+          var tent = new THREE.Mesh(new THREE.ConeGeometry(0.03, 0.17, 8), bodyMat);
+          tent.position.y = -0.07; tent.rotation.x = Math.PI;
+          pivot.add(tent); m.add(pivot); tents.push(pivot);
+        }
+        m.userData.tentacles = tents;
+        m.scale.setScalar(mScale);
+        return m;
+      }
+
+      /* ---- The planet under attack ---- */
+      var planetGroup = new THREE.Group(); inv.add(planetGroup); anim.planetGroup = planetGroup;
+      var gTex = planetTexture(rnd);
+      var gPlanet = new THREE.Mesh(
+        new THREE.SphereGeometry(0.88, 64, 48),
+        new THREE.MeshStandardMaterial({ map: gTex, bumpMap: gTex, bumpScale: 0.5, roughness: 0.75, metalness: 0.05 })
+      );
+      planetGroup.add(gPlanet);
+      var gClouds = new THREE.Mesh(
+        new THREE.SphereGeometry(0.92, 48, 36),
+        new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.13, roughness: 1, depthWrite: false })
+      );
+      planetGroup.add(gClouds);
+
+      /* Sickly green atmosphere of a world under siege */
+      var gAtmo = new THREE.Mesh(
+        new THREE.SphereGeometry(1.05, 48, 36),
+        new THREE.ShaderMaterial({
+          vertexShader: 'varying vec3 vN; void main(){ vN = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+          fragmentShader: 'varying vec3 vN; void main(){ float i = pow(0.68 - dot(vN, vec3(0.0, 0.0, 1.0)), 3.5); gl_FragColor = vec4(0.32, 0.92, 0.45, 1.0) * i; }',
+          blending: THREE.AdditiveBlending, side: THREE.BackSide, transparent: true, depthWrite: false
+        })
+      );
+      inv.add(gAtmo);
+
+      /* Monsters riding the surface: each holder is pinned to a point on
+         the sphere with its up aligned to the surface normal, so the
+         creatures march around the planet as it turns. */
+      var monsters = [];
+      function addMonster(latDeg, lonDeg, mScale, bodyHex, glowHex) {
+        var phi = (90 - latDeg) * Math.PI / 180, theta = (lonDeg + 180) * Math.PI / 180;
+        var pos = new THREE.Vector3(
+          -0.88 * Math.sin(phi) * Math.cos(theta),
+          0.88 * Math.cos(phi),
+          0.88 * Math.sin(phi) * Math.sin(theta)
+        );
+        var holder = new THREE.Group();
+        holder.position.copy(pos);
+        holder.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), pos.clone().normalize());
+        var mon = makeMonster(bodyHex, glowHex, mScale);
+        mon.rotation.y = rnd() * Math.PI * 2;
+        holder.add(mon); planetGroup.add(holder);
+        monsters.push({ root: mon, tentacles: mon.userData.tentacles, eye: mon.userData.eye, phase: rnd() * 6.28 });
+      }
+      addMonster(25, 20, 1.15, 0x4ade80, 0xffb454);
+      addMonster(-10, 90, 0.9, 0x2fd68a, 0xff5a3c);
+      addMonster(42, 160, 1.0, 0x8bd450, 0xffb454);
+      addMonster(-35, -60, 0.8, 0x3fd0c9, 0xffb454);
+      addMonster(5, -130, 1.3, 0x57b06a, 0xff5a3c);
+      addMonster(-48, 130, 0.7, 0x4ade80, 0x1fd8c6);
+      anim.monsters = monsters;
+
+      /* Alarm beacons pulsing on the surface */
+      var beaconMat = new THREE.SpriteMaterial({
+        map: dotTex, color: 0xff5a3c, transparent: true, opacity: 0.8,
+        blending: THREE.AdditiveBlending, depthWrite: false
+      });
+      anim.beaconMat = beaconMat;
+      var beaconSpots = [[15, -30], [-20, 40], [55, 80], [-5, -100], [30, -160]];
+      for (var bi = 0; bi < beaconSpots.length; bi++) {
+        var bPhi = (90 - beaconSpots[bi][0]) * Math.PI / 180, bTheta = (beaconSpots[bi][1] + 180) * Math.PI / 180;
+        var bPos = new THREE.Vector3(
+          -0.9 * Math.sin(bPhi) * Math.cos(bTheta),
+          0.9 * Math.cos(bPhi),
+          0.9 * Math.sin(bPhi) * Math.sin(bTheta)
+        );
+        var beacon = new THREE.Sprite(beaconMat);
+        beacon.scale.set(0.22, 0.22, 1); beacon.position.copy(bPos);
+        planetGroup.add(beacon);
+      }
+
+      /* ---- The mothership, hovering over the planet ---- */
+      var shipPos = new THREE.Vector3(0.4, 1.62, -0.15);
+      var shipGroup = new THREE.Group(); shipGroup.position.copy(shipPos);
+      inv.add(shipGroup); anim.shipGroup = shipGroup; anim.shipBaseY = shipPos.y;
+      var hullMat = new THREE.MeshStandardMaterial({ color: 0xb9c8c4, roughness: 0.3, metalness: 0.75 });
+      var saucer = new THREE.Mesh(new THREE.CylinderGeometry(0.52, 0.64, 0.15, 32), hullMat);
+      shipGroup.add(saucer);
+      var dome = new THREE.Mesh(
+        new THREE.SphereGeometry(0.3, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2),
+        new THREE.MeshStandardMaterial({ color: 0x1fd8c6, transparent: true, opacity: 0.5, roughness: 0.15, metalness: 0.1, emissive: 0x0f766e, emissiveIntensity: 0.5 })
+      );
+      dome.position.y = 0.06; shipGroup.add(dome);
+      /* The pilot: a little monster at the controls, visible through the dome */
+      var pilot = makeMonster(0x4ade80, 0xffb454, 0.55);
+      pilot.position.y = 0.03; shipGroup.add(pilot);
+      anim.monsters.push({ root: pilot, tentacles: pilot.userData.tentacles, eye: pilot.userData.eye, phase: 1.3 });
+      var hub = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.2, 0.13, 16), new THREE.MeshStandardMaterial({ color: 0x14242f, roughness: 0.45, metalness: 0.6 }));
+      hub.position.y = -0.13; shipGroup.add(hub);
+      var underGlow = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: dotTex, color: 0x63ff9a, transparent: true, opacity: 0.85,
+        blending: THREE.AdditiveBlending, depthWrite: false
+      }));
+      underGlow.scale.set(0.85, 0.85, 1); underGlow.position.y = -0.16; shipGroup.add(underGlow);
+      /* Ring of running lights around the saucer rim */
+      var lightsG = new THREE.Group(); shipGroup.add(lightsG); anim.shipLights = lightsG;
+      for (var li = 0; li < 10; li++) {
+        var la = (li / 10) * Math.PI * 2;
+        var bulb = new THREE.Mesh(
+          new THREE.SphereGeometry(0.035, 10, 8),
+          new THREE.MeshStandardMaterial({ color: li % 2 ? 0xffb454 : 0xff5a3c, emissive: li % 2 ? 0xffb454 : 0xff5a3c, emissiveIntensity: 0.9, roughness: 0.4 })
+        );
+        bulb.position.set(Math.cos(la) * 0.59, -0.02, Math.sin(la) * 0.59);
+        lightsG.add(bulb);
+      }
+
+      /* ---- Tractor beam: ship underside down to the planet surface,
+         built in world space, then parented to the ship so it bobs
+         with it. Debris particles spiral up the beam. ---- */
+      var beamA = new THREE.Vector3(0.4, 1.5, -0.15);
+      var beamB = new THREE.Vector3(0.195, 0.846, -0.054);
+      var beamDir = new THREE.Vector3().subVectors(beamA, beamB);
+      var beamLen = beamDir.length();
+      var beamMat = new THREE.MeshBasicMaterial({ color: 0x63ff9a, transparent: true, opacity: 0.14, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending });
+      var beamMat2 = new THREE.MeshBasicMaterial({ color: 0xb6ffd2, transparent: true, opacity: 0.2, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending });
+      anim.beamMat = beamMat; anim.beamMat2 = beamMat2;
+      function beamCone(radius, mat) {
+        var cone = new THREE.Mesh(new THREE.ConeGeometry(radius, beamLen, 24, 1, true), mat);
+        cone.position.copy(beamA).add(beamB).multiplyScalar(0.5).sub(shipPos);
+        cone.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), beamDir.clone().normalize());
+        shipGroup.add(cone);
+      }
+      beamCone(0.3, beamMat);
+      beamCone(0.16, beamMat2);
+      var beamAxis = new THREE.Vector3().subVectors(beamB, beamA).normalize();
+      var beamU = new THREE.Vector3().crossVectors(beamAxis, new THREE.Vector3(0, 0, 1)).normalize();
+      var beamV = new THREE.Vector3().crossVectors(beamAxis, beamU).normalize();
+      var nBeam = 90, beamPos = new Float32Array(nBeam * 3), beamData = [];
+      for (var bpi = 0; bpi < nBeam; bpi++) {
+        beamData.push({ h: rnd(), speed: 0.002 + rnd() * 0.004, ang: rnd() * Math.PI * 2, rf: 0.3 + rnd() * 0.7 });
+      }
+      var beamGeo = new THREE.BufferGeometry();
+      beamGeo.setAttribute('position', new THREE.BufferAttribute(beamPos, 3));
+      var beamPts = new THREE.Points(beamGeo, new THREE.PointsMaterial({
+        size: 0.07, map: dotTex, color: 0xb6ffd2, transparent: true, opacity: 0.95,
+        depthWrite: false, blending: THREE.AdditiveBlending
+      }));
+      shipGroup.add(beamPts);
+      anim.beamP = { geo: beamGeo, data: beamData, a: beamA, b: beamB, u: beamU, v: beamV, origin: shipPos };
+
+      /* ---- Drop pods raining from the ship toward the surface ---- */
+      var pods = [];
+      var podStart = new THREE.Vector3(0.28, 1.44, 0.02);
+      var podEnd = new THREE.Vector3(-0.35, 0.74, 0.3);
+      for (var pi2 = 0; pi2 < 3; pi2++) {
+        var pod = new THREE.Group();
+        var podBody = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.19, 10), new THREE.MeshStandardMaterial({ color: 0x9db8b2, roughness: 0.35, metalness: 0.7 }));
+        podBody.rotation.x = Math.PI; pod.add(podBody);
+        var podGlow = new THREE.Sprite(new THREE.SpriteMaterial({
+          map: dotTex, color: 0xff5a3c, transparent: true, opacity: 0.95,
+          blending: THREE.AdditiveBlending, depthWrite: false
+        }));
+        podGlow.scale.set(0.24, 0.24, 1); podGlow.position.y = 0.08; pod.add(podGlow);
+        pod.rotation.z = 0.35;
+        inv.add(pod);
+        pods.push({ mesh: pod, off: pi2 / 3 });
+      }
+      anim.pods = pods; anim.podStart = podStart; anim.podEnd = podEnd;
+
+      /* ---- Patrol drones on wide tilted orbits ---- */
+      function makeDrone(accentHex) {
+        var d = new THREE.Group();
+        var dBody = new THREE.Mesh(new THREE.SphereGeometry(0.12, 18, 12), hullMat);
+        dBody.scale.set(1, 0.45, 1); d.add(dBody);
+        var dDome = new THREE.Mesh(new THREE.SphereGeometry(0.055, 14, 10), new THREE.MeshStandardMaterial({ color: accentHex, roughness: 0.3, metalness: 0.2, emissive: accentHex, emissiveIntensity: 0.6 }));
+        dDome.position.y = 0.045; d.add(dDome);
+        var dGlow = new THREE.Sprite(new THREE.SpriteMaterial({
+          map: dotTex, color: accentHex, transparent: true, opacity: 0.9,
+          blending: THREE.AdditiveBlending, depthWrite: false
+        }));
+        dGlow.scale.set(0.3, 0.3, 1); dGlow.position.y = -0.06; d.add(dGlow);
+        return d;
+      }
+      var dronePivots = [];
+      function addDrone(radius, speed, y, accentHex, tiltZ) {
+        var pivot = new THREE.Group();
+        pivot.rotation.z = tiltZ;
+        var dr = makeDrone(accentHex);
+        dr.position.set(radius, y, 0);
+        pivot.add(dr); pivot.userData.speed = speed;
+        inv.add(pivot); dronePivots.push(pivot);
+      }
+      addDrone(1.4, 0.01, 0.3, 0x1fd8c6, 0.3);
+      addDrone(1.65, -0.008, -0.45, 0xffb454, -0.5);
+      addDrone(1.9, 0.006, 0.85, 0xff5a3c, 0.9);
+      anim.dronePivots = dronePivots;
+
+      /* ---- Scout monsters tumbling in open space ---- */
+      var floaters = [];
+      function addFloater(x, y, z, fScale, bodyHex, glowHex) {
+        var fm = makeMonster(bodyHex, glowHex, fScale);
+        fm.position.set(x, y, z);
+        inv.add(fm);
+        floaters.push({ m: fm, tentacles: fm.userData.tentacles, y: y, phase: rnd() * 6.28 });
+      }
+      addFloater(-1.45, 0.85, -0.35, 0.85, 0x8bd450, 0xffb454);
+      addFloater(-1.25, -0.75, 0.45, 0.65, 0x2fd68a, 0xff5a3c);
+      anim.floaters = floaters;
+
+      /* Starfield the invasion fleet arrived through */
+      var gStars = starfield(rnd, 820, 12, 0.15, [0xffffff, 0x1fd8c6, 0xffb454, 0xff5a3c]);
+      scene.add(gStars); anim.stars = gStars;
     } else {
       /* ================= STARSHIP TRAFFIC =================
          A ringed planet hangs in a dense starfield while a fleet of
@@ -1502,6 +1775,66 @@ footer p{color:var(--faint);font-size:.94rem}
             if (anim.photon) { var ps = 1 + Math.sin(t * 2.1) * 0.025; anim.photon.scale.set(ps, ps, 1); }
             if (anim.glow) anim.glow.material.opacity = 0.85 + Math.sin(t * 1.4) * 0.12;
             if (anim.root) anim.root.rotation.y += 0.0012;
+          } else if (isGames) {
+            if (anim.planetGroup) anim.planetGroup.rotation.y += 0.0021;
+            /* Mothership hovers and bobs, rim lights running */
+            if (anim.shipGroup) {
+              anim.shipGroup.position.y = anim.shipBaseY + Math.sin(t * 0.9) * 0.055;
+              if (anim.shipLights) anim.shipLights.rotation.y -= 0.025;
+            }
+            if (anim.beamMat) anim.beamMat.opacity = 0.12 + Math.sin(t * 2.8) * 0.045;
+            if (anim.beamMat2) anim.beamMat2.opacity = 0.17 + Math.sin(t * 2.8 + 1) * 0.06;
+            /* Debris spirals up the tractor beam into the ship */
+            if (anim.beamP) {
+              var bp = anim.beamP, bAttr = bp.geo.attributes.position;
+              for (var bi2 = 0; bi2 < bp.data.length; bi2++) {
+                var bd = bp.data[bi2];
+                bd.h += bd.speed; if (bd.h > 1) bd.h = 0;
+                bd.ang += 0.03;
+                var rr = ((1 - bd.h) * 0.24 + 0.02) * bd.rf;
+                var cx = bp.b.x + (bp.a.x - bp.b.x) * bd.h + (bp.u.x * Math.cos(bd.ang) + bp.v.x * Math.sin(bd.ang)) * rr;
+                var cy = bp.b.y + (bp.a.y - bp.b.y) * bd.h + (bp.u.y * Math.cos(bd.ang) + bp.v.y * Math.sin(bd.ang)) * rr;
+                var cz = bp.b.z + (bp.a.z - bp.b.z) * bd.h + (bp.u.z * Math.cos(bd.ang) + bp.v.z * Math.sin(bd.ang)) * rr;
+                bAttr.setXYZ(bi2, cx - bp.origin.x, cy - bp.origin.y, cz - bp.origin.z);
+              }
+              bAttr.needsUpdate = true;
+            }
+            /* Drop pods rain down and loop back to the ship */
+            if (anim.pods) for (var poi = 0; poi < anim.pods.length; poi++) {
+              var podO = anim.pods[poi];
+              var pt2 = (t * 0.13 + podO.off) % 1;
+              podO.mesh.position.set(
+                anim.podStart.x + (anim.podEnd.x - anim.podStart.x) * pt2,
+                anim.podStart.y + (anim.podEnd.y - anim.podStart.y) * pt2,
+                anim.podStart.z + (anim.podEnd.z - anim.podStart.z) * pt2
+              );
+              podO.mesh.rotation.y += 0.05;
+              var pScale = 0.25 + Math.sin(Math.min(pt2, 1) * Math.PI) * 0.85;
+              podO.mesh.scale.setScalar(pScale);
+            }
+            if (anim.dronePivots) for (var dri = 0; dri < anim.dronePivots.length; dri++) anim.dronePivots[dri].rotation.y += anim.dronePivots[dri].userData.speed;
+            /* Every monster wiggles: hopping bodies, swaying tentacles,
+               eyes glancing around */
+            if (anim.monsters) for (var moi = 0; moi < anim.monsters.length; moi++) {
+              var mo = anim.monsters[moi];
+              mo.root.position.y = Math.abs(Math.sin(t * 2.2 + mo.phase)) * 0.022;
+              for (var tej = 0; tej < mo.tentacles.length; tej++) {
+                mo.tentacles[tej].rotation.x = Math.sin(t * 3 + mo.phase + tej * 1.1) * 0.28;
+                mo.tentacles[tej].rotation.z = Math.cos(t * 2.6 + mo.phase + tej) * 0.28;
+              }
+              if (mo.eye) mo.eye.rotation.y = Math.sin(t * 0.7 + mo.phase) * 0.45;
+            }
+            /* Scouts tumble slowly through open space */
+            if (anim.floaters) for (var flo = 0; flo < anim.floaters.length; flo++) {
+              var fl = anim.floaters[flo];
+              fl.m.position.y = fl.y + Math.sin(t * 0.8 + fl.phase) * 0.09;
+              fl.m.rotation.y += 0.004;
+              fl.m.rotation.z = Math.sin(t * 0.5 + fl.phase) * 0.3;
+              for (var flt = 0; flt < fl.tentacles.length; flt++) {
+                fl.tentacles[flt].rotation.x = Math.sin(t * 2.4 + fl.phase + flt * 1.3) * 0.35;
+              }
+            }
+            if (anim.beaconMat) anim.beaconMat.opacity = 0.5 + Math.sin(t * 4.5) * 0.38;
           } else {
             if (anim.spin) anim.spin.rotation.y += 0.0022;
             if (anim.clouds) anim.clouds.rotation.y += 0.0009;
