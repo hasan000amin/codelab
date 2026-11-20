@@ -504,14 +504,14 @@ footer p{color:var(--faint);font-size:.94rem}
     <div class="legal-hero" data-legal-hero="terms">
       <div class="three-legal" data-three-legal="terms" aria-hidden="true"></div>
       <div class="legal-hero-shade"></div>
-      <div class="legal-hero-top"><span class="legal-live">Live 3D &bull; Orbital Planet</span><span class="legal-coord">Sector // Terms Archive 10</span></div>
+      <div class="legal-hero-top"><span class="legal-live">Live 3D &bull; Starship Traffic</span><span class="legal-coord">Sector // Terms Archive 10</span></div>
       <div class="legal-hero-content">
         <p class="mono kicker" style="margin-bottom:12px">Legal</p>
         <h1>Terms of <em>Service</em></h1>
         <p class="updated mono">Last updated: November 20, 2026</p>
         <p class="legal-lede">These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the games and this website provided by Codelab Game Studio (&ldquo;Codelab&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). By downloading, installing, or playing any of our games, you agree to these Terms. If you do not agree, please do not use our games.</p>
         <div class="legal-badges" aria-label="Terms highlights"><span class="legal-badge">License to play</span><span class="legal-badge">Fair play rules</span><span class="legal-badge">Google Play purchases</span></div>
-        <div class="legal-controls"><span class="legal-hint">Drag the planet to spin it &bull; Move for parallax</span><button type="button" class="legal-pause" data-legal-pause="terms" aria-pressed="false">Pause 3D</button></div>
+        <div class="legal-controls"><span class="legal-hint">Drag to swing the fleet &bull; Move for parallax</span><button type="button" class="legal-pause" data-legal-pause="terms" aria-pressed="false">Pause 3D</button></div>
         <div class="legal-stats"><div class="legal-stat"><b>10</b><span>Terms sections</span></div><div class="legal-stat"><b>Android</b><span>Platform</span></div><div class="legal-stat"><b>Google Play</b><span>Payments &amp; refunds</span></div></div>
       </div>
     </div>
@@ -984,10 +984,11 @@ footer p{color:var(--faint);font-size:.94rem}
 })();
 </script>
 <script>
-/* ============ Three.js legal stages: Privacy BLACK HOLE + Terms ORBITAL PLANET ============
+/* ============ Three.js legal stages: Privacy BLACK HOLE + Terms STARSHIP TRAFFIC ============
    Privacy: a black hole with a glowing accretion disk, photon ring,
    gravitational-lensing halo and infalling particles.
-   Terms: a living planet with atmosphere, moons and a starfield.
+   Terms: a busy flight lane: starships loop around a ringed planet
+   while cruisers streak past it through a dense starfield.
    Both are interactive: drag to rotate, move the mouse for parallax,
    scroll for a slow spin, pause per stage.
    KEY FIX: the SPA keeps inactive pages at display:none, so a stage that is
@@ -1247,25 +1248,28 @@ footer p{color:var(--faint);font-size:.94rem}
       var stars = starfield(rnd, 620, 11, 0.14, [0xffffff, 0x1fd8c6, 0xffb454]);
       scene.add(stars); anim.stars = stars;
     } else {
-      /* ================= ORBITAL PLANET ================= */
+      /* ================= STARSHIP TRAFFIC =================
+         A ringed planet hangs in a dense starfield while a fleet of
+         starships flies loops around it, and two bigger cruisers
+         streak back and forth past the planet with glowing trails. */
       var pg = new THREE.Group(); world.add(pg); anim.root = pg;
       var spin = new THREE.Group(); pg.add(spin); anim.spin = spin;
 
       var pTex = planetTexture(rnd);
       var planet = new THREE.Mesh(
-        new THREE.SphereGeometry(0.98, 64, 48),
+        new THREE.SphereGeometry(0.8, 64, 48),
         new THREE.MeshStandardMaterial({ map: pTex, bumpMap: pTex, bumpScale: 0.5, roughness: 0.75, metalness: 0.05 })
       );
       spin.add(planet);
       var clouds = new THREE.Mesh(
-        new THREE.SphereGeometry(1.02, 48, 36),
+        new THREE.SphereGeometry(0.84, 48, 36),
         new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.15, roughness: 1, depthWrite: false })
       );
       spin.add(clouds); anim.clouds = clouds;
 
       /* Atmosphere glow */
       var atmo = new THREE.Mesh(
-        new THREE.SphereGeometry(1.22, 48, 36),
+        new THREE.SphereGeometry(1.0, 48, 36),
         new THREE.ShaderMaterial({
           vertexShader: 'varying vec3 vN; void main(){ vN = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
           fragmentShader: 'varying vec3 vN; void main(){ float i = pow(0.68 - dot(vN, vec3(0.0, 0.0, 1.0)), 3.5); gl_FragColor = vec4(1.0, 0.70, 0.32, 1.0) * i; }',
@@ -1274,18 +1278,18 @@ footer p{color:var(--faint);font-size:.94rem}
       );
       pg.add(atmo);
 
-      /* Slim ring system */
+      /* Slim ring system the fleet weaves around */
       var ringTilt = new THREE.Group(); ringTilt.rotation.set(0.5, 0, -0.22); pg.add(ringTilt);
       function flatRing(inner, outer, color, opacity) {
         var g2 = diskGeometry(inner, outer);
         var m2 = new THREE.Mesh(g2, new THREE.MeshBasicMaterial({ color: color, transparent: true, opacity: opacity, side: THREE.DoubleSide, depthWrite: false }));
         ringTilt.add(m2); return m2;
       }
-      flatRing(1.32, 1.78, 0xffb454, 0.30);
-      flatRing(1.44, 1.62, 0x1fd8c6, 0.28);
+      flatRing(1.08, 1.46, 0xffb454, 0.30);
+      flatRing(1.18, 1.34, 0x1fd8c6, 0.28);
       anim.ringTilt = ringTilt;
 
-      /* Two moons */
+      /* Two moons, slower traffic on wide orbits */
       var pivots = [];
       function moon(r, size, color, speed, y) {
         var pivot = new THREE.Group();
@@ -1297,11 +1301,113 @@ footer p{color:var(--faint);font-size:.94rem}
         pivot.add(mm); pivot.userData.speed = speed;
         pg.add(pivot); pivots.push(pivot);
       }
-      moon(2.35, 0.17, 0xffb454, 0.0035, 0.45);
-      moon(-2.6, 0.12, 0x1fd8c6, -0.0024, -0.7);
+      moon(2.5, 0.15, 0xffb454, 0.0022, 0.6);
+      moon(-2.75, 0.11, 0x1fd8c6, -0.0016, -0.85);
       anim.pivots = pivots;
 
-      /* Dense starfield: the planet is surrounded by stars */
+      /* ---- Starship factory: hull, nose cone, canopy, swept wings,
+         tail fin and a pulsing engine glow. Nose points along +Z. ---- */
+      function makeShip(accentHex, scale) {
+        var ship = new THREE.Group();
+        var hullMat = new THREE.MeshStandardMaterial({ color: 0xe9f2f0, roughness: 0.35, metalness: 0.6 });
+        var accentMat = new THREE.MeshStandardMaterial({ color: accentHex, roughness: 0.4, metalness: 0.35, emissive: accentHex, emissiveIntensity: 0.4 });
+        var darkMat = new THREE.MeshStandardMaterial({ color: 0x14242f, roughness: 0.45, metalness: 0.6 });
+        var body = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.078, 0.44, 12), hullMat);
+        body.rotation.x = Math.PI / 2; ship.add(body);
+        var nose = new THREE.Mesh(new THREE.ConeGeometry(0.055, 0.24, 12), accentMat);
+        nose.rotation.x = Math.PI / 2; nose.position.z = 0.34; ship.add(nose);
+        var canopy = new THREE.Mesh(new THREE.SphereGeometry(0.046, 12, 10), darkMat);
+        canopy.position.set(0, 0.05, 0.08); canopy.scale.set(1, 0.7, 1.7); ship.add(canopy);
+        var wingGeo = new THREE.BoxGeometry(0.36, 0.016, 0.13);
+        var wingL = new THREE.Mesh(wingGeo, accentMat);
+        wingL.position.set(-0.2, 0, -0.12); wingL.rotation.y = 0.5; ship.add(wingL);
+        var wingR = new THREE.Mesh(wingGeo, accentMat);
+        wingR.position.set(0.2, 0, -0.12); wingR.rotation.y = -0.5; ship.add(wingR);
+        var fin = new THREE.Mesh(new THREE.BoxGeometry(0.016, 0.13, 0.1), accentMat);
+        fin.position.set(0, 0.07, -0.18); ship.add(fin);
+        var glowS = new THREE.Sprite(new THREE.SpriteMaterial({
+          map: dotTex, color: accentHex, transparent: true, opacity: 0.95,
+          blending: THREE.AdditiveBlending, depthWrite: false
+        }));
+        glowS.scale.set(0.24, 0.24, 1); glowS.position.z = -0.27;
+        ship.add(glowS); ship.userData.glow = glowS;
+        ship.rotation.order = 'YXZ';
+        ship.scale.setScalar(scale);
+        return ship;
+      }
+
+      /* Position a ship on its elliptical flight loop around the planet
+         and aim its nose along the direction of travel, banked. */
+      function placeShip(ship) {
+        var u = ship.userData, a = u.angle;
+        ship.position.set(
+          Math.cos(a) * u.radius,
+          Math.sin(a) * u.incl * 0.55,
+          Math.sin(a) * u.radius * 0.72
+        );
+        var dx = -Math.sin(a) * u.radius * u.speed;
+        var dy = Math.cos(a) * u.incl * 0.55 * u.speed;
+        var dz = Math.cos(a) * u.radius * 0.72 * u.speed;
+        var len = Math.sqrt(dx * dx + dy * dy + dz * dz) || 1;
+        ship.rotation.y = Math.atan2(dx, dz);
+        ship.rotation.x = -Math.asin(Math.max(-1, Math.min(1, dy / len)));
+        ship.rotation.z = u.bank;
+      }
+
+      /* The fleet: four ships on tilted loops at different radii,
+         speeds and directions, weaving around planet, rings and moons. */
+      var fleet = [];
+      var fleetSpecs = [
+        { radius: 1.5, speed: 0.011, incl: 0.5, angle: 0.4, accent: 0x1fd8c6, scale: 1.0, bank: -0.5 },
+        { radius: 1.8, speed: -0.0085, incl: -0.7, angle: 2.4, accent: 0xffb454, scale: 0.85, bank: 0.5 },
+        { radius: 2.1, speed: 0.0068, incl: 1.15, angle: 4.4, accent: 0xff5a3c, scale: 1.2, bank: -0.42 },
+        { radius: 1.65, speed: 0.014, incl: -1.35, angle: 5.5, accent: 0x1fd8c6, scale: 0.7, bank: -0.55 }
+      ];
+      for (var fs = 0; fs < fleetSpecs.length; fs++) {
+        var spec = fleetSpecs[fs];
+        var fship = makeShip(spec.accent, spec.scale);
+        fship.userData.radius = spec.radius;
+        fship.userData.speed = spec.speed;
+        fship.userData.incl = spec.incl;
+        fship.userData.angle = spec.angle;
+        fship.userData.bank = spec.bank;
+        placeShip(fship);
+        pg.add(fship); fleet.push(fship);
+      }
+      anim.fleet = fleet;
+
+      /* Cruisers: bigger ships flying straight passes across the whole
+         stage, back and forth, each dragging a fading engine trail. */
+      var cruisers = [];
+      function makeCruiser(y, z, dir, speed, accentHex) {
+        var cship = makeShip(accentHex, 1.6);
+        cship.rotation.y = dir > 0 ? Math.PI / 2 : -Math.PI / 2;
+        scene.add(cship);
+        var tLen = 30;
+        var tPos = new Float32Array(tLen * 3);
+        var tCol = new Float32Array(tLen * 3);
+        var ac = new THREE.Color(accentHex);
+        for (var ti = 0; ti < tLen; ti++) {
+          var fade = Math.pow(1 - ti / tLen, 1.6);
+          tCol[ti * 3] = ac.r * fade; tCol[ti * 3 + 1] = ac.g * fade; tCol[ti * 3 + 2] = ac.b * fade;
+        }
+        var tGeo = new THREE.BufferGeometry();
+        tGeo.setAttribute('position', new THREE.BufferAttribute(tPos, 3));
+        tGeo.setAttribute('color', new THREE.BufferAttribute(tCol, 3));
+        var trail = new THREE.Line(tGeo, new THREE.LineBasicMaterial({
+          vertexColors: true, transparent: true, opacity: 0.9,
+          blending: THREE.AdditiveBlending, depthWrite: false
+        }));
+        scene.add(trail);
+        var hist = [];
+        for (var hi = 0; hi < tLen; hi++) hist.push(new THREE.Vector3(dir > 0 ? -9.5 : 9.5, y, z));
+        cruisers.push({ ship: cship, trail: trail, hist: hist, x: dir > 0 ? -9.5 : 9.5, y: y, z: z, dir: dir, speed: speed });
+      }
+      makeCruiser(1.9, -2.2, 1, 0.028, 0x1fd8c6);
+      makeCruiser(-1.7, 0.6, -1, 0.022, 0xffb454);
+      anim.cruisers = cruisers;
+
+      /* Dense starfield: the traffic flies among the stars */
       var starsA = starfield(rnd, 950, 12, 0.15, [0xffffff, 0x1fd8c6, 0xffb454, 0xff5a3c]);
       scene.add(starsA); anim.stars = starsA;
       var starsB = starfield(rnd, 130, 10, 0.34, [0xffffff, 0xffb454]);
@@ -1401,6 +1507,37 @@ footer p{color:var(--faint);font-size:.94rem}
             if (anim.clouds) anim.clouds.rotation.y += 0.0009;
             if (anim.ringTilt) anim.ringTilt.rotation.y += 0.001;
             if (anim.pivots) for (var mi = 0; mi < anim.pivots.length; mi++) anim.pivots[mi].rotation.y += anim.pivots[mi].userData.speed;
+            /* Fleet ships fly their loops around the planet, engine
+               glow pulsing as they go */
+            if (anim.fleet) for (var fi = 0; fi < anim.fleet.length; fi++) {
+              var fsh = anim.fleet[fi];
+              fsh.userData.angle += fsh.userData.speed;
+              placeShip(fsh);
+              var fg = 0.2 + Math.sin(t * 9 + fi * 1.7) * 0.07;
+              fsh.userData.glow.scale.set(fg, fg, 1);
+            }
+            /* Cruisers streak across the stage and wrap around,
+               dragging their fading engine trails behind them */
+            if (anim.cruisers) for (var ci = 0; ci < anim.cruisers.length; ci++) {
+              var cr = anim.cruisers[ci];
+              cr.x += cr.dir * cr.speed;
+              if (cr.x > 10) cr.x = -10;
+              if (cr.x < -10) cr.x = 10;
+              var bobY = Math.sin(t * 1.3 + ci * 2.4) * 0.08;
+              cr.ship.position.set(cr.x, cr.y + bobY, cr.z);
+              cr.ship.rotation.z = Math.sin(t * 0.9 + ci * 2.0) * 0.08;
+              var cg = 0.36 + Math.sin(t * 11 + ci * 3.1) * 0.1;
+              cr.ship.userData.glow.scale.set(cg, cg, 1);
+              var engine = new THREE.Vector3(cr.x - cr.dir * 0.5, cr.y + bobY, cr.z);
+              for (var hi2 = cr.hist.length - 1; hi2 > 0; hi2--) cr.hist[hi2].copy(cr.hist[hi2 - 1]);
+              cr.hist[0].copy(engine);
+              if (Math.abs(cr.x) > 9.4) for (var hi3 = 0; hi3 < cr.hist.length; hi3++) cr.hist[hi3].copy(engine);
+              var tp = cr.trail.geometry.attributes.position;
+              for (var ti2 = 0; ti2 < cr.hist.length; ti2++) {
+                tp.setXYZ(ti2, cr.hist[ti2].x, cr.hist[ti2].y, cr.hist[ti2].z);
+              }
+              tp.needsUpdate = true;
+            }
             if (anim.starsB) anim.starsB.material.opacity = 0.7 + Math.sin(t * 1.8) * 0.3;
           }
           if (anim.stars) anim.stars.rotation.y += 0.00022;
